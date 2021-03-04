@@ -7,6 +7,10 @@ import com.chessence.gui.pages.MainMenuPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class GuiMain extends JFrame{
 
@@ -16,6 +20,7 @@ public class GuiMain extends JFrame{
     private CardLayout cl = new CardLayout();
 
     public void startUp(){
+
         //Setting frame properties:
         frame.setLayout(null);  //setting no specific layout property as of now
         frame.setTitle("Chessence");    //setting title of the frame
@@ -24,7 +29,7 @@ public class GuiMain extends JFrame{
         frame.setUndecorated(true);
         frame.setResizable(true); //prevent frame to be resized
         frame.setVisible(true); //setting the frame to be visible
-        frame.getContentPane().setBackground(new Color(0x734046)); //setting background color
+        frame.getContentPane().setBackground(new Color(0x150308)); //setting background color
 
         Container container = frame.getContentPane();   //getting the content area of the frame
         CardLayout cardLayout = new CardLayout();   //setting a cardlayout variable

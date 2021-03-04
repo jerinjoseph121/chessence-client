@@ -14,7 +14,6 @@ public class GameScreenPanel extends JPanel implements ActionListener {
     public GameScreenPanel(JFrame frame, CardLayout cardLayout){
         this.frame = frame;
         this.cardLayout = cardLayout;
-
         this.setLayout(null);
 
         //Design this panel here:
@@ -30,8 +29,6 @@ public class GameScreenPanel extends JPanel implements ActionListener {
         label.setFont(new Font("MV Boli", Font.PLAIN, 40));
         label.setForeground(Color.black);
         this.add(label);
-
-
     }
 
     @Override

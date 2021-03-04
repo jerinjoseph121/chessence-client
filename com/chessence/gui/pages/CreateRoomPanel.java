@@ -25,7 +25,7 @@ public class CreateRoomPanel extends JPanel implements ActionListener {
         JLabel label = new JLabel();
         label.setText("Create Room Panel");
         label.setBounds(500, 0, 500, 100);
-        label.setFont(new Font("MV Boli", Font.PLAIN, 40));
+        label.setFont(new Font("Roboto-Medium", Font.PLAIN, 40));
         label.setForeground(Color.black);
         this.add(label);
     }
