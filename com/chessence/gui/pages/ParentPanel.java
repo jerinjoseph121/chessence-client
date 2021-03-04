@@ -44,9 +44,19 @@ public class ParentPanel extends JPanel {
         int w = r.width;
 
         //setting background opacity:
-        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.1f));    //setting opacity to 8%
+        g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.16f));    //setting opacity to 16%
         g2d.drawImage(backgroundImage, 0, 0, w, h, this);   //draw the background
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));      //setting the opacity back to 100% because this affects everything ;_;
+    }
+
+    public int getHeadingFontSize(){
+        //getting current frame size:
+        Rectangle r = frame.getBounds();
+        int h = r.height;
+        int w = r.width;
+        int fontSize = (int)((0.076923)*(h - 1080) + 68);
+        System.out.println("Heading font size: " + fontSize);
+        return fontSize;
     }
 
     public Font getFont(String nameOfFont, int sizeOfFont) {
