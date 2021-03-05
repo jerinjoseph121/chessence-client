@@ -4,57 +4,66 @@ import com.chessence.gui.pages.components.*;
 import com.chessence.gui.pages.components.TextField;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MainMenuPanel extends ParentPanel implements ActionListener {
 
-    public JButton button = new JButton();
+    public JButton exitButton = new RoundedButton("Exit", new Color(0x5F3136), new Color(0x59252b), 20);
 
-    private JButton createRoomButton = new RoundedButton("Create a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
-    private JButton joinRoomButton = new RoundedButton("Join a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
-    private JButton playWithRandomsButton = new RoundedButton("Play with Randoms", new Color(0xEE9946), new Color(0xbd6e22), 30);
+    private final JButton createRoomButton = new RoundedButton("Create a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
+    private final JButton joinRoomButton = new RoundedButton("Join a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
+    private final JButton playWithRandomsButton = new RoundedButton("Play with Randoms", new Color(0xEE9946), new Color(0xbd6e22), 30);
 
     public MainMenuPanel(JFrame frame, CardLayout cardLayout) {
         super(frame, cardLayout);
 
+        this.setLayout(new BorderLayout());
         //getting current frame size:
         Rectangle r = frame.getBounds();
         int heightOfFrame = r.height;
         int widthOfFrame = r.width;
 
+        JPanel topPanel = new JPanel();
+        topPanel.setOpaque(false);
+
+        //topPanel.setLayout(new FlowLayout());
+
         //adding a small initial space in the top (above the heading)
-        this.add(new HorizontalSpace(widthOfFrame, 7));
+        topPanel.add(new HorizontalSpace(widthOfFrame, 7));
 
         //Adding heading (label):
         JLabel heading = new JLabel("Chessence");
-        heading.setFont(getFont("Roboto-Medium", getHeadingFontSize()));
+        heading.setFont(getFont("Roboto-Medium", getResponsiveFontSize(68)));
         heading.setForeground(new Color(0x895158));
-        this.add(heading);
-        this.add(new HorizontalSpace(widthOfFrame, 0));
+        topPanel.add(heading);
+        topPanel.add(new HorizontalSpace(widthOfFrame, 0));
 
         //adding a horizontal line:
-        this.add(new HorizontalLine((int) (0.90 * widthOfFrame), 5, new Color(0x895158)));
-        this.add(new HorizontalSpace(widthOfFrame, (int) (heightOfFrame * 0.1)));
+        topPanel.add(new HorizontalLine((int) (0.90 * widthOfFrame), 5, new Color(0x895158)));
+        topPanel.add(new HorizontalSpace(widthOfFrame, (int) (heightOfFrame * 0.074074)));
 
         //making the label for text field:
         JLabel usernameLabel = new JLabel("Username: ");
-        usernameLabel.setFont(getFont("Roboto-Medium", 40));
+        usernameLabel.setFont(getFont("Roboto-Medium", getResponsiveFontSize(40)));
         usernameLabel.setForeground(new Color(0xFFDEEE));
-        this.add(usernameLabel);
+        topPanel.add(usernameLabel);
 
         //making the textfield:
         JTextField usernameField = new TextField(400, 50, "Player1");
-        usernameField.setFont(getFont("Roboto-Medium", 32));
+        usernameField.setFont(getFont("Roboto-Medium", getResponsiveFontSize(32)));
 
-        //usernameField.setBounds(0, 0, 400, 20);
-        this.add(usernameField);
-        this.add(new HorizontalSpace(widthOfFrame, 80));
+        topPanel.add(usernameField);
+        topPanel.add(new HorizontalSpace(widthOfFrame, (int)(0.074074*heightOfFrame)));
 
-        int buttonWidth = 600;
-        int buttonHeight = 100;
-        int buttonFontSize = 40;
+        int buttonWidth = (int)(widthOfFrame*((float)600/(float)1920));
+        int buttonHeight = (int)(heightOfFrame*((float)100/(float)1080));
+        int buttonFontSize = getResponsiveFontSize(40);
+        int buttonGap = 10;
 
         //create room button:
         createRoomButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
@@ -74,27 +83,44 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
         playWithRandomsButton.setForeground(new Color(0x321F28));
         playWithRandomsButton.addActionListener(this);
 
-        this.add(createRoomButton);
-        this.add(new HorizontalSpace(widthOfFrame, 10)); //newLine
+        topPanel.add(createRoomButton);
+        topPanel.add(new HorizontalSpace(widthOfFrame, buttonGap)); //newLine
 
-        this.add(joinRoomButton);
-        this.add(new HorizontalSpace(widthOfFrame, 10)); //newLine
+        topPanel.add(joinRoomButton);
+        topPanel.add(new HorizontalSpace(widthOfFrame, buttonGap)); //newLine
 
-        this.add(playWithRandomsButton);
-        this.add(new HorizontalSpace(widthOfFrame, 10)); //newLine
+        topPanel.add(playWithRandomsButton);
+        topPanel.add(new HorizontalSpace(widthOfFrame, 0)); //newLine
 
-        this.add(new HorizontalSpace(widthOfFrame, 0));
-        button.setBounds(500, 500, 100, 50);
-        button.addActionListener(this);
-        button.setText("EXIT");
-        this.add(button);
+        topPanel.add(new HorizontalSpace(widthOfFrame, 0));
 
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setOpaque(false);
+        bottomPanel.setLayout(new BorderLayout());
+        this.add(topPanel);
 
+        JPanel exitButtonPanel = new JPanel();
+        exitButtonPanel.setOpaque(false);
+        exitButtonPanel.setPreferredSize(new Dimension(300, 70));
+        exitButtonPanel.add(exitButton, BorderLayout.CENTER);
+        bottomPanel.add(exitButtonPanel, BorderLayout.LINE_END);
+
+        //this.setLayout(new BorderLayout());
+        exitButton.setPreferredSize(new Dimension(200, 50));
+        exitButton.addActionListener(this);
+        exitButton.setForeground(new Color(0xF9A450));
+        exitButton.setFont(getFont("Rambla-Bold", getResponsiveFontSize(28)));
+        Border current = exitButton.getBorder();
+        Border empty = new EmptyBorder(50, 50, 50, 50);
+        exitButton.setBorder(new CompoundBorder(empty, current));
+        //bottomPanel.add(exitButton, BorderLayout.LINE_END);
+
+        this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == button) {
+        if (e.getSource() == exitButton) {
             frame.dispose();    //close the frame
         }
 

@@ -26,7 +26,7 @@ public class JoinRoomPanel extends ParentPanel implements ActionListener {
 
         //Adding heading (label):
         JLabel heading = new JLabel("Join a Room");
-        heading.setFont(getFont("Roboto-Medium", getHeadingFontSize()));
+        heading.setFont(getFont("Roboto-Medium", getResponsiveFontSize(68)));
         heading.setForeground(new Color(0x895158));
         this.add(heading);
         this.add(new HorizontalSpace(widthOfFrame, 0));

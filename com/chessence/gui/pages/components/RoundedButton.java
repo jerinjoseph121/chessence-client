@@ -16,6 +16,7 @@ public class RoundedButton extends JButton {
         this.cornerRadius = cornerRadius;
         this.setFocusable(false);
         this.setBackground(backgroundColor);
+        this.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         Dimension size = getPreferredSize();
         size.width = size.height = Math.max(size.width,
                 size.height);
@@ -53,7 +54,7 @@ public class RoundedButton extends JButton {
 
     // Paint the border of the button using a simple stroke.
     protected void paintBorder(Graphics g) {
-        g.setColor(getForeground());
+        g.setColor(backgroundColor);
         g.drawRoundRect(0, 0, getSize().width - 1,
                 getSize().height - 1, cornerRadius, cornerRadius);
     }

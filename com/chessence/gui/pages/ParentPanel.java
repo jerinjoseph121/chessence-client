@@ -59,12 +59,15 @@ public class ParentPanel extends JPanel {
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));      //setting the opacity back to 100% because this affects everything ;_;
     }
 
-    public int getHeadingFontSize() {
+    public int getResponsiveFontSize(int sizeOf1080) {
+        //sizeOf1080 denotes the size of the text in screen resolutions that have a height of 1080px.
+
         //getting current frame size:
         Rectangle r = frame.getBounds();
         int h = r.height;
         int w = r.width;
-        int fontSize = (int) ((0.076923) * (h - 1080) + 68);
+        int fontSize = (int) ((0.076923) * (h - 1080) + sizeOf1080);
+        fontSize = fontSize < 20 ? fontSize+16 : fontSize;
         return fontSize;
     }
 
