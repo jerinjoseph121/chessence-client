@@ -13,13 +13,23 @@ import java.nio.file.Paths;
 
 public class ParentPanel extends JPanel {
 
+    //--------------put all common data of all the panels here----------------
+    public static String username;
+
+    //-------------------------end of common data-----------------------------
+
     protected JFrame frame;
     protected CardLayout cardLayout;
+    protected Container container;
+
     BufferedImage backgroundImage;
 
     public ParentPanel(JFrame frame, CardLayout cardLayout) {
         this.frame = frame;
         this.cardLayout = cardLayout;
+        Container container = frame.getContentPane();   //getting the content area of the frame
+        this.container = container;
+
         Path currentRelativePath = Paths.get("");
         try {
             backgroundImage = ImageIO.read(new File(currentRelativePath.toAbsolutePath().toString() +
@@ -49,13 +59,12 @@ public class ParentPanel extends JPanel {
         g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));      //setting the opacity back to 100% because this affects everything ;_;
     }
 
-    public int getHeadingFontSize(){
+    public int getHeadingFontSize() {
         //getting current frame size:
         Rectangle r = frame.getBounds();
         int h = r.height;
         int w = r.width;
-        int fontSize = (int)((0.076923)*(h - 1080) + 68);
-        System.out.println("Heading font size: " + fontSize);
+        int fontSize = (int) ((0.076923) * (h - 1080) + 68);
         return fontSize;
     }
 
@@ -63,7 +72,7 @@ public class ParentPanel extends JPanel {
         try {
             Path currentRelativePath = Paths.get("");
             Font customFont = Font.createFont(Font.TRUETYPE_FONT, new File(currentRelativePath.toAbsolutePath().toString() +
-                    "\\com\\chessence\\gui\\fonts\\" + nameOfFont + ".ttf")).deriveFont((float)sizeOfFont);
+                    "\\com\\chessence\\gui\\fonts\\" + nameOfFont + ".ttf")).deriveFont((float) sizeOfFont);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             //register the font:
             ge.registerFont(customFont);

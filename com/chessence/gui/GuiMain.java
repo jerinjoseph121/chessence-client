@@ -7,19 +7,15 @@ import com.chessence.gui.pages.MainMenuPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
-public class GuiMain extends JFrame{
+public class GuiMain extends JFrame {
 
     public JButton button = new JButton();
     public JFrame frame = new JFrame();
     public JPanel cards;
     private CardLayout cl = new CardLayout();
 
-    public void startUp(){
+    public void startUp() {
 
         //Setting frame properties:
         frame.setLayout(null);  //setting no specific layout property as of now
