@@ -2,6 +2,8 @@ package com.chessence.gui.pages;
 
 import com.chessence.gui.pages.components.*;
 import com.chessence.gui.pages.components.TextField;
+import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.PlayersPanel;
+import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.SpectatorsPanel;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -18,6 +20,8 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
     private final JButton createRoomButton = new RoundedButton("Create a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
     private final JButton joinRoomButton = new RoundedButton("Join a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
     private final JButton playWithRandomsButton = new RoundedButton("Play with Randoms", new Color(0xEE9946), new Color(0xbd6e22), 30);
+
+    JTextField usernameField;
 
     public MainMenuPanel(JFrame frame, CardLayout cardLayout) {
         super(frame, cardLayout);
@@ -54,7 +58,7 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
         topPanel.add(usernameLabel);
 
         //making the textfield:
-        JTextField usernameField = new TextField(400, 50, "Player1");
+        usernameField = new TextField(400, 50, username);
         usernameField.setFont(getFont("Roboto-Medium", getResponsiveFontSize(32)));
 
         topPanel.add(usernameField);
@@ -119,8 +123,23 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
         this.add(bottomPanel, BorderLayout.SOUTH);
     }
 
+    //update player function
+    public void updatePlayer(){
+        if(CreateRoomPanel.Player_Status == 'P'){
+            PlayersPanel.initializePlayer();
+        }
+        else{
+            SpectatorsPanel.initializeSpectator();
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        //updating the name of the player
+        username = usernameField.getText();
+        updatePlayer();
+
         if (e.getSource() == exitButton) {
             frame.dispose();    //close the frame
         }
