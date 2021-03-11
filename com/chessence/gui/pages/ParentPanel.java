@@ -3,8 +3,6 @@ package com.chessence.gui.pages;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +14,10 @@ public class ParentPanel extends JPanel {
     //--------------put all common data of all the panels here----------------
     public static String username;
 
+    static{
+        username = "Player1";
+    }
+
     //-------------------------end of common data-----------------------------
 
     protected JFrame frame;
@@ -25,6 +27,7 @@ public class ParentPanel extends JPanel {
     BufferedImage backgroundImage;
 
     public ParentPanel(JFrame frame, CardLayout cardLayout) {
+
         this.frame = frame;
         this.cardLayout = cardLayout;
         Container container = frame.getContentPane();   //getting the content area of the frame
