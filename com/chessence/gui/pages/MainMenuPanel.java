@@ -94,6 +94,7 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
 
         topPanel.add(new HorizontalSpace(widthOfFrame, 0));
 
+        //creating a bottom panel that will be put to the bottom-most part of the frame (to put the exit button)
         JPanel bottomPanel = new JPanel();
         bottomPanel.setOpaque(false);
         bottomPanel.setLayout(new BorderLayout());
