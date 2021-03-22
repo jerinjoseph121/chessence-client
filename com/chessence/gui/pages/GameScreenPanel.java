@@ -11,58 +11,94 @@ import java.awt.event.ActionListener;
 
 public class GameScreenPanel extends ParentPanel implements ActionListener {
     public JButton button = new JButton();
-
+    private String spectators[]={"SPECTATORS", "DumbSkull", "Jerin", "Ritika", "Namrata"};   //the first element should be "SPECTATORS"
 
     public GameScreenPanel(JFrame frame, CardLayout cardLayout){
         super(frame, cardLayout);
-        this.setLayout(new GridLayout(1,2));
-        //getting current frame size:
+
+        //Getting frame dimensions:
         Rectangle r = frame.getBounds();
         int heightOfFrame = r.height;
         int widthOfFrame = r.width;
-        int width_chess_panel = (int)(widthOfFrame*0.8);
+
+        //Setting the layout of the main entire panel as borderLayout
+        this.setLayout(new BorderLayout());
+
+        //Determining the width of the left and right panel:
+        int width_chess_panel = (int)(widthOfFrame*0.65);
         int width_chat_panel = widthOfFrame - width_chess_panel;
+
+        //splitting the whole screen into a leftPanel and a rightPanel:
         JPanel chess_panel = new JPanel();
-        chess_panel.setPreferredSize(new Dimension(heightOfFrame,width_chess_panel));
+        chess_panel.setPreferredSize(new Dimension(width_chess_panel, heightOfFrame));
+        chess_panel.setOpaque(false);
         JPanel chat_panel = new JPanel();
-        chat_panel.setPreferredSize(new Dimension(heightOfFrame,width_chat_panel-1));
-        chat_panel.setBackground(new Color(0,0,255));
-        this.add(chess_panel);
-        this.add(chat_panel);
-//        chess_panel.setBackground(new Color(0,0,0,0));
-//        main_panel.setBackground(new Color(0x100101));
+        chat_panel.setPreferredSize(new Dimension((widthOfFrame - width_chess_panel), heightOfFrame));
+        chat_panel.setOpaque(false);
+
+
         //---------------------Design this panel here---------------------//
+
+        //============DESIGNING THE CHESS_PANEL============
 
         //adding a small initial space in the top (above the heading)
         chess_panel.add(new HorizontalSpace(widthOfFrame, 7));
 
-        //Adding heading (label):
-        JLabel heading = new JLabel("Player 1");
-        heading.setFont(getFont("Roboto-Medium", getResponsiveFontSize(68)));
-        heading.setForeground(new Color(0xE79E4F));
-        chess_panel.add(heading,BorderLayout.PAGE_START);
+        //Heading (PLAYER 1):
+        JLabel player1 = new JLabel("Player 1");
+        player1.setFont(getFont("Roboto-Medium", getResponsiveFontSize(68)));
+        player1.setForeground(new Color(0xE79E4F));
+        chess_panel.add(player1, BorderLayout.PAGE_START);
+
+        //adding horizontal space of 0 so next component goes to next line:
         chess_panel.add(new HorizontalSpace(widthOfFrame, 0));
 
-        //adding a horizontal line:
+        //adding the chess board:
+        chess_panel.add(new Board(width_chess_panel, heightOfFrame), BorderLayout.CENTER);
 
-        chess_panel.add(new Board(widthOfFrame,heightOfFrame));
+        //adding horizontal space of 0 so next component goes to next line:
+        chess_panel.add(new HorizontalSpace(widthOfFrame, 0));
+
+        //Heading (PLAYER 2):
         JLabel player2 = new JLabel("Player 2");
         player2.setFont(getFont("Roboto-Medium", getResponsiveFontSize(68)));
         player2.setForeground(new Color(0xE79E4F));
-        chess_panel.add(player2,BorderLayout.PAGE_END);
-//        this.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        chat_panel.add(new ChatBox(widthOfFrame/3,heightOfFrame/2));
+        chess_panel.add(player2, BorderLayout.PAGE_END);
 
+        //============DESIGNING THE CHAT PANEL============
+
+        //setting layout of this panel as FlowLayout.CENTER
+        chat_panel.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+        //making a dropdown menu [DESIGN THIS LATER]:
+        JPanel dropdownPanel = new JPanel();
+        dropdownPanel.setPreferredSize(new Dimension(width_chat_panel, 60));
+        dropdownPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
+        dropdownPanel.add(new HorizontalSpace(width_chat_panel, 1));
+        JComboBox dropdownMenu =new JComboBox(spectators);
+        dropdownMenu.setPreferredSize(new Dimension((int)(width_chat_panel*0.3), 30));
+        dropdownPanel.setOpaque(false);
+        dropdownPanel.add(dropdownMenu);
+        chat_panel.add(dropdownPanel);
+
+        //adding horizontal space of 0 so next component goes to next line:
+        chat_panel.add(new HorizontalSpace(widthOfFrame, 0));
+
+        //adding the chat box:
+        chat_panel.add(new ChatBox((int)(width_chat_panel/1.5),heightOfFrame/2));
+
+        //adding horizontal space of 0 so next component goes to next line:
+        chat_panel.add(new HorizontalSpace((int)(widthOfFrame), 0));
+
+        //Making the "EXIT" button:
         button.setBounds(500, 500, 100,50);
         button.addActionListener(this);
         button.setText("EXIT");
         chat_panel.add(button);
 
-
-//        this.add(new HorizontalSpace(widthOfFrame, 0));
-
-
-
+        //ADDING THE LEFT AND RIGHT PANEL TO THE MAIN PANEL:
+        this.add(chess_panel, BorderLayout.WEST);
+        this.add(chat_panel, BorderLayout.EAST);
 
         //-----------------------End of designing------------------------//
     }

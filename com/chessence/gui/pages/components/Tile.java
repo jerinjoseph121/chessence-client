@@ -7,10 +7,10 @@ import javax.swing.*;
 public class Tile /*extends Piece*/ extends JPanel{
     private  Color tileColor;
 //    private Piece piece;
-    private  Pair<Character,Integer> tileCoord;
+    private  Pair<Character, Integer> tileCoord;
     private int len;
 
-    public Tile(Boolean isWhite,Pair<Character,Integer> coord,int len){
+    public Tile(Boolean isWhite, Pair<Character, Integer> coord, int len){
         this.tileCoord=coord;
         this.tileColor =  new Color(isWhite? 0xFFFFFF : 0x36454F);
         super.setBackground(Color.BLACK);
@@ -22,7 +22,7 @@ public class Tile /*extends Piece*/ extends JPanel{
         super.paintComponent(g);
         // draw the rectangle here
         g.setColor(this.tileColor);
-        g.fill3DRect(0,0,len,len,true);
+        g.fill3DRect(0, 0, len, len,true);
     }
 
 

@@ -4,15 +4,16 @@ import javafx.util.Pair;
 import javax.swing.*;
 import java.awt.*;
 import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 
 public class Board extends JPanel {
     private Dimension size;
-    public Board(int W,int H){
+    public Board(int W, int H){
         FlowLayout layout = (FlowLayout)super.getLayout();
         layout.setVgap(0);
         layout.setHgap(0);
-        int len = (int)(max(W,H)/2.5);
+        int len = (int)(min(W, H)/1.3);
         this.size = new Dimension(len,len);
         super.setPreferredSize(size);
         setBackground(Color.BLACK);
