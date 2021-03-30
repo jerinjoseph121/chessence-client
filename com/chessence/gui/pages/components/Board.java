@@ -13,10 +13,10 @@ public class Board extends JPanel {
         FlowLayout layout = (FlowLayout)super.getLayout();
         layout.setVgap(0);
         layout.setHgap(0);
-        int len = (int)(min(W, H)/1.3);
+        int len = (int)(min(W, H)*0.8);
         this.size = new Dimension(len,len);
         super.setPreferredSize(size);
-        setBackground(Color.BLACK);
+        super.setOpaque(false);
         boolean white = true;
         for(char x = 'a';x<='h';x++){
             for(int y=1;y<=8;y++){

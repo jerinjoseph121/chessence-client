@@ -11,11 +11,10 @@ import java.awt.event.ActionListener;
 
 public class GameScreenPanel extends ParentPanel implements ActionListener {
     public JButton button = new JButton();
-    private String spectators[]={"SPECTATORS", "DumbSkull", "Jerin", "Ritika", "Namrata"};   //the first element should be "SPECTATORS"
 
     public GameScreenPanel(JFrame frame, CardLayout cardLayout){
         super(frame, cardLayout);
-
+        frame.setLocationRelativeTo(null);
         //Getting frame dimensions:
         Rectangle r = frame.getBounds();
         int heightOfFrame = r.height;
@@ -70,22 +69,14 @@ public class GameScreenPanel extends ParentPanel implements ActionListener {
         //setting layout of this panel as FlowLayout.CENTER
         chat_panel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        //making a dropdown menu [DESIGN THIS LATER]:
-        JPanel dropdownPanel = new JPanel();
-        dropdownPanel.setPreferredSize(new Dimension(width_chat_panel, 60));
-        dropdownPanel.setLayout(new FlowLayout(FlowLayout.TRAILING));
-        dropdownPanel.add(new HorizontalSpace(width_chat_panel, 1));
-        JComboBox dropdownMenu =new JComboBox(spectators);
-        dropdownMenu.setPreferredSize(new Dimension((int)(width_chat_panel*0.3), 30));
-        dropdownPanel.setOpaque(false);
-        dropdownPanel.add(dropdownMenu);
-        chat_panel.add(dropdownPanel);
+        //SPECTATORS PANEL:
+        chat_panel.add(new Specs(width_chat_panel,heightOfFrame));
 
         //adding horizontal space of 0 so next component goes to next line:
         chat_panel.add(new HorizontalSpace(widthOfFrame, 0));
 
         //adding the chat box:
-        chat_panel.add(new ChatBox((int)(width_chat_panel/1.5),heightOfFrame/2));
+        chat_panel.add(new ChatBox((int)(width_chat_panel*0.9),(int)(heightOfFrame/1.7)),FlowLayout.CENTER);
 
         //adding horizontal space of 0 so next component goes to next line:
         chat_panel.add(new HorizontalSpace((int)(widthOfFrame), 0));
@@ -106,9 +97,10 @@ public class GameScreenPanel extends ParentPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(new Color(0x100101));
-//        System.out.println("W:" + getSize().width + ", H:" + getSize().height);
-        g2d.fillRect(0, 0, getSize().width, getSize().height);
+        Paint p = new GradientPaint(getWidth()*0.2f, getHeight()*0.1f, new Color(21, 3, 8, 255),
+                0.0f, getHeight(), new Color(208, 108, 120, 255), false);
+        g2d.setPaint(p);
+        g2d.fillRect(0, 0, getWidth(), getHeight());
     }
     @Override
     public void actionPerformed(ActionEvent e){
