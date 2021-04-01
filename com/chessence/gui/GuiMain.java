@@ -1,9 +1,6 @@
 package com.chessence.gui;
 
-import com.chessence.gui.pages.CreateRoomPanel;
-import com.chessence.gui.pages.GameScreenPanel;
-import com.chessence.gui.pages.JoinRoomPanel;
-import com.chessence.gui.pages.MainMenuPanel;
+import com.chessence.gui.pages.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,14 +33,16 @@ public class GuiMain extends JFrame {
         JPanel joinRoomPanel = new JoinRoomPanel(frame, cardLayout);
         JPanel createRoomPanel = new CreateRoomPanel(frame, cardLayout);
         JPanel gameScreenPanel = new GameScreenPanel(frame, cardLayout);
+        JPanel loadingPanel = new LoadingPanel(frame, cardLayout);
 
         //adding the panels to the container:
         container.add(mainMenuPanel, "MainMenu");
         container.add(joinRoomPanel, "JoinRoom");
         container.add(createRoomPanel, "CreateRoom");
         container.add(gameScreenPanel, "GameScreen");
+        container.add(loadingPanel, "LoadingScreen");
 
         //starting with the MainMenu panel (change it to any other panel if you want)
-        cardLayout.show(container, "GameScreen");
+        cardLayout.show(container, "MainMenu");
     }
 }

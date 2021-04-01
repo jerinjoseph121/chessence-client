@@ -12,10 +12,11 @@ import java.nio.file.Paths;
 public class ParentPanel extends JPanel {
 
     //--------------put all common data of all the panels here----------------
-    public static String username;
+    public static String username, currentRoomID;
 
     static{
         username = "Player1";
+        currentRoomID = null;
     }
 
     //-------------------------end of common data-----------------------------
@@ -43,6 +44,19 @@ public class ParentPanel extends JPanel {
 
         this.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
         this.setOpaque(false);
+    }
+
+    public String getNewRoomID(){
+        if (currentRoomID!=null){
+            return currentRoomID;
+        }
+        else{
+            //make api call to register the current user's ip address and assign a new room id to this ip address and
+            //return the new room id:
+            String newRoomID = "Test123";
+            currentRoomID = newRoomID;
+            return newRoomID;
+        }
     }
 
     @Override
