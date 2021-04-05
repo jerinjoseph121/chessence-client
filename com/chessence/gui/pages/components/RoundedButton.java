@@ -44,8 +44,8 @@ public class RoundedButton extends JButton {
         } else {
             g.setColor(getBackground());
         }
-        g.fillRoundRect(0, 0, getSize().width - 1,
-                getSize().height - 1, cornerRadius, cornerRadius);
+        g.fillRoundRect(0, 0, getSize().width - 1 ,
+                getSize().height - 1 , cornerRadius, cornerRadius);
 
         // This call will paint the label and the
         // focus rectangle.
@@ -55,8 +55,8 @@ public class RoundedButton extends JButton {
     // Paint the border of the button using a simple stroke.
     protected void paintBorder(Graphics g) {
         g.setColor(backgroundColor);
-        g.drawRoundRect(0, 0, getSize().width - 1,
-                getSize().height - 1, cornerRadius, cornerRadius);
+        g.drawRoundRect(0, 0, getSize().width - 1 ,
+                getSize().height - 1 , cornerRadius, cornerRadius);
     }
 
     // Hit detection.

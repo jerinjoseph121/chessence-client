@@ -1,67 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib1.xml" beforeDir="false" />
+    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="modified spectators">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chessence.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chessence-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/GuiMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/RoundedButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/RoundedButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Specs.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Specs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/Chessence.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/CreateRoomPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/GameScreenPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/JoinRoomPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/MainMenuPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/ParentPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/HorizontalLine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/HorizontalSpace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/RoundedButton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/RoundedButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/TextField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/Body.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/OnOffSwitch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/RoundedButton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/RoundedButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/bodyComponents/PlayersPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/bodyComponents/SpectatorsPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/images/spinner.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/GameScreenPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/GameScreenPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs$1$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1qZWRxaC6pd2dI13aJbbqv9Prbu" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/javafx-sdk-16/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.chessence.gui.pages.components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Namrata Prasad\IdeaProjects\chessence-client-2\com\chessence\gui\images" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.chessence.Main" />
       <module name="chessence-client" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\javafx-sdk-16\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chessence.*" />
@@ -86,7 +91,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1617287587513</updated>
+      <workItem from="1617298909945" duration="146000" />
+      <workItem from="1617418920540" duration="6840000" />
+      <workItem from="1617484530141" duration="11068000" />
+      <workItem from="1617556137197" duration="152000" />
+      <workItem from="1617622520171" duration="2021000" />
     </task>
+    <task id="LOCAL-00001" summary="modified spectators">
+      <created>1617299001237</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1617299001237</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modified spectators" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified spectators" />
   </component>
 </project>

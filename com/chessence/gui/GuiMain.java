@@ -43,6 +43,6 @@ public class GuiMain extends JFrame {
         container.add(loadingPanel, "LoadingScreen");
 
         //starting with the MainMenu panel (change it to any other panel if you want)
-        cardLayout.show(container, "MainMenu");
+        cardLayout.show(container, "GameScreen");
     }
 }

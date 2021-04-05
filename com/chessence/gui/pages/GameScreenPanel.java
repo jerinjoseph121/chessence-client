@@ -4,13 +4,14 @@ import com.chessence.gui.pages.components.*;
 import com.sun.scenario.effect.Color4f;
 import javafx.util.Pair;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
+
 
 public class GameScreenPanel extends ParentPanel implements ActionListener {
-    public JButton button = new JButton();
+    public JButton EXIT = new RoundedButton((CreateRoomPanel.Player_Status == 'P'?"Forfeit Match" : "Leave Lobby"),new Color(0xE79E4F), new Color(0xB8742A), 15);
 
     public GameScreenPanel(JFrame frame, CardLayout cardLayout){
         super(frame, cardLayout);
@@ -76,16 +77,20 @@ public class GameScreenPanel extends ParentPanel implements ActionListener {
         chat_panel.add(new HorizontalSpace(widthOfFrame, 0));
 
         //adding the chat box:
-        chat_panel.add(new ChatBox((int)(width_chat_panel*0.9),(int)(heightOfFrame/1.7)),FlowLayout.CENTER);
+        chat_panel.add(new ChatBox((int)(width_chat_panel*0.9),(int)(heightOfFrame/1.9)),FlowLayout.CENTER);
 
         //adding horizontal space of 0 so next component goes to next line:
         chat_panel.add(new HorizontalSpace((int)(widthOfFrame), 0));
 
+        //---------------- MUTE AND DEAFEN BUTTONS----------------------
+        chat_panel.add(new FunctionalButtons(width_chat_panel,heightOfFrame));
+
         //Making the "EXIT" button:
-        button.setBounds(500, 500, 100,50);
-        button.addActionListener(this);
-        button.setText("EXIT");
-        chat_panel.add(button);
+        EXIT.addActionListener(this);
+        EXIT.setForeground(new Color(0x841522));
+        EXIT.setFont(getFont("Rambla-Bold",25));
+        EXIT.setPreferredSize(new Dimension((int)(width_chat_panel*0.9),heightOfFrame/15));
+        chat_panel.add(EXIT);
 
         //ADDING THE LEFT AND RIGHT PANEL TO THE MAIN PANEL:
         this.add(chess_panel, BorderLayout.WEST);
@@ -104,7 +109,7 @@ public class GameScreenPanel extends ParentPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==button){
+        if(e.getSource()==EXIT){
             frame.dispose();
         }
     }
