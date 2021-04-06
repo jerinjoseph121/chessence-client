@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="modified spectators">
+    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="modified chatbox">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chessence-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/RoundedButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/RoundedButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Specs.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Specs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/images/spinner.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/GameScreenPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/GameScreenPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs$1$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +81,7 @@
       <workItem from="1617418920540" duration="6840000" />
       <workItem from="1617484530141" duration="11068000" />
       <workItem from="1617556137197" duration="152000" />
-      <workItem from="1617622520171" duration="2021000" />
+      <workItem from="1617622520171" duration="21724000" />
     </task>
     <task id="LOCAL-00001" summary="modified spectators">
       <created>1617299001237</created>
@@ -104,7 +90,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617299001237</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modified chatpanel">
+      <created>1617634792492</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1617634792492</updated>
+    </task>
+    <task id="LOCAL-00003" summary="modified chatbox">
+      <created>1617648951422</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617648951422</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +124,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modified spectators" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified spectators" />
+    <MESSAGE value="modified chatpanel" />
+    <MESSAGE value="modified chatbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="modified chatbox" />
   </component>
 </project>
