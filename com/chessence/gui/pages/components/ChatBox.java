@@ -1,36 +1,49 @@
 package com.chessence.gui.pages.components;
 
-import org.w3c.dom.Text;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.font.FontRenderContext;
+import java.awt.geom.AffineTransform;
 import java.util.*;
-
-import static java.lang.Math.max;
 
 public class ChatBox extends JPanel {
     private final Dimension size;
+
     private JPanel box = new JPanel();
-    public Map<String,Boolean> MESSAGES = new LinkedHashMap<String,Boolean>();
+    private JScrollPane scrollPane = null;
+    private JPanel mainChatWindow = new JPanel();
+    private JTextPane textBox = new JTextPane();
 
-    public ChatBox(int W,int H){
+    private int W;
+    private int H;
 
-        MESSAGES.put("Hello wazzuuppppp CO2 IS BAD",true);
-        MESSAGES.put("This is the NP Project",true);
-        MESSAGES.put("Wohoooooooooo awesomee okay bye",false);
-        MESSAGES.put("Jingala hurr hurrrr",true);
-        MESSAGES.put("also java sucks",false);
+    private ArrayList<ChatMessage> MESSAGES = new ArrayList<>();
+    private int totalHeighOfWindow = 0;
+    private String textBoxInput = "";
 
+    public ChatBox(int W, int H){
+
+        this.W = W;
+        this.H = H;
+
+        MESSAGES.add(new ChatMessage("This is the NP Project", true));
+        MESSAGES.add(new ChatMessage("Wohoooooooooo awesomee okay bye", false));
+        MESSAGES.add(new ChatMessage("Jingala hurr hurrrr", true));
+        MESSAGES.add(new ChatMessage("also java sucks", false));
+        MESSAGES.add(new ChatMessage("Wasdasdwesomee okay bye", false));
+        MESSAGES.add(new ChatMessage("Jingaaasdasdhurr hurrrr", true));
+        MESSAGES.add(new ChatMessage("also asdasdcks", false));
+        MESSAGES.add(new ChatMessage("Hello wazzuuppppp CO2 IS BADllo wazzuuppppp CO2 IS BADllo wazzuuppppp CO2 IS BADHello wazzuuppppp CO2 IS BADllo wazzuuppppp CO2 IS BADllo wazzuuppppp CO2 IS BADHello wazzuuppppp CO2 IS BADllo wazzuuppppp CO2 IS BADllo wazzuuppppp CO2 IS BAD", true));
 
         FlowLayout layout = (FlowLayout)super.getLayout();
         layout.setHgap(10);
         layout.setVgap(10);
         layout.setAlignment(FlowLayout.LEADING);
-        this.size = new Dimension(W,H);
+        this.size = new Dimension(W, H);
         super.setPreferredSize(size);
         super.setOpaque(false);
         setBackground(new Color(0xC88275));
@@ -40,67 +53,102 @@ public class ChatBox extends JPanel {
         label.setFont(new Font("Colonna MT",Font.BOLD,25));
         label.setForeground(new Color(0x321F28));
         super.add(label);
-        super.add(new HorizontalLine((int) (W*0.95),6,new Color(0x321F28)));
+        super.add(new HorizontalLine((int) (W*0.95),6, new Color(0x321F28)));
 
         //------------------------MESSAGES--------------------------
-        JPanel mainchatwindow = new JPanel();
-        JScrollPane scroll = new JScrollPane(mainchatwindow);
-        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 
-        mainchatwindow.setPreferredSize(new Dimension(W, (int) (3.5*H/5)));
-        mainchatwindow.setLayout(new FlowLayout());
-        mainchatwindow.setOpaque(false);
-        for(HashMap.Entry<String,Boolean> item : MESSAGES.entrySet()){
-            JPanel messages = new JPanel();
-            messages.setLayout(new FlowLayout(item.getValue() ? FlowLayout.LEFT: FlowLayout.RIGHT,10,10));
-            messages.setOpaque(false);
-            messages.setPreferredSize(new Dimension((int) (W*0.95),60));
-            messages.add(new TextBubble(item.getKey(),item.getValue(),W));
-            mainchatwindow.add(messages,BorderLayout.AFTER_LINE_ENDS);
+        scrollPane = new JScrollPane(mainChatWindow,
+                                            JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                                            JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(0, 0, W, H);
+        scrollPane.setBorder(null);
+        scrollPane.getViewport().setBackground(new Color(0xC88275));
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
+        scrollPane.setPreferredSize(new Dimension((int) (W*0.95), (int) (3.5*H/5)));
+
+        mainChatWindow.setLayout(new FlowLayout());
+        mainChatWindow.setOpaque(false);
+
+        for(ChatMessage item: MESSAGES){
+            displayNewMessage(item.getMessage(), item.isOpponent());
         }
-        super.add(mainchatwindow);
-        //------------------------TEXT BOX--------------------------
-        JTextPane msgbox = new JTextPane();
-        Border roundedBorder = new LineBorder(new Color(0x734046), 3, true); // the third parameter - true, says it's round
-        msgbox.setBorder(roundedBorder);
-        msgbox.setEditable(true);
-        msgbox.setPreferredSize(new Dimension((int) (W*0.95),H/10));
 
-        msgbox.setBackground(new Color(0xD79E92));
-        msgbox.setBounds(0,H-msgbox.getHeight(), msgbox.getWidth(), msgbox.getHeight());
+        mainChatWindow.setPreferredSize(new Dimension((int)(W*0.92), totalHeighOfWindow));
+        //JScrollBar vertical = scrollPane.getVerticalScrollBar();
+        scrollPane.getViewport().setViewPosition(new Point(0, totalHeighOfWindow));
+        //vertical.setValue(totalHeighOfWindow+100);
+        super.add(scrollPane);
+
+        //------------------------TEXT BOX--------------------------
+
+        Border roundedBorder = new LineBorder(new Color(0x734046), 3, true); // the third parameter - true, says it's round
+        textBox.setBorder(roundedBorder);
+        textBox.setEditable(true);
+        textBox.setPreferredSize(new Dimension((int) (W*0.95),H/10));
+
+        textBox.setBackground(new Color(0xD79E92));
+        textBox.setBounds(0,H- textBox.getHeight(), textBox.getWidth(), textBox.getHeight());
         box.setLayout(new FlowLayout(FlowLayout.LEFT,0,0));
         box.setOpaque(false);
         box.setPreferredSize(new Dimension(W, (int) (H/8.5)));
-        box.add(msgbox);
+        box.add(textBox);
         super.add(box,BorderLayout.SOUTH);
-//        RoundedButton send = new RoundedButton()
 
 
-        msgbox.addKeyListener(new KeyListener() {
+        textBox.addKeyListener(new KeyListener() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                if(e.getKeyCode()==10){
+                    if(textBox.getText().trim()!="")
+                    {
+                        addNewMessage(textBox.getText().trim(), false);
+                        //also send to the other client//
+                    }
+                }
+            }
+
             @Override
             public void keyTyped(KeyEvent e) {
-
+                /*if(e.getKeyChar()== ' ' && textBoxInput == "")
+                {
+                    return;
+                }*/
+                //textBoxInput = textBoxInput + e.getKeyChar();
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
 
             }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                if(e.getKeyCode()==10){
-                    JPanel newmsg = new JPanel();
-                    newmsg.setLayout(new FlowLayout(FlowLayout.LEFT,10,10));
-                    newmsg.setOpaque(false);
-                    newmsg.setPreferredSize(new Dimension((int) (W*0.95),55));
-                    newmsg.add(new TextBubble(msgbox.getText(),false,W));
-                    msgbox.setText("");
-                    mainchatwindow.add(newmsg);
-                    System.out.println(msgbox.getText());
-                }
-            }
         });
+    }
+
+    private void addNewMessage(String text, boolean isOpponent)
+    {
+        textBox.setText("");
+        MESSAGES.add(new ChatMessage(text, isOpponent));
+        textBoxInput = "";
+        displayNewMessage(text, isOpponent);
+    }
+
+    private void displayNewMessage(String text, boolean isOpponent){
+        int textWidth = getTextWidth(text);
+        int numberOfLines = (int)Math.ceil(textWidth/(W*0.95));
+
+        JPanel message = new JPanel();
+        message.setLayout(new FlowLayout(isOpponent ? FlowLayout.LEFT: FlowLayout.RIGHT,10,10));
+        message.setOpaque(false);
+        totalHeighOfWindow += 60*numberOfLines + 10;
+        message.setPreferredSize(new Dimension((int) (W*0.80),50*numberOfLines + 10));
+        message.add(new TextBubble(text, isOpponent, W));
+        mainChatWindow.add(message);
+        mainChatWindow.add(new HorizontalSpace((int)W, 0));
+        mainChatWindow.setPreferredSize(new Dimension((int)(W*0.92), totalHeighOfWindow));
+        scrollPane.getViewport().setViewPosition(new Point(0, totalHeighOfWindow));
+        mainChatWindow.revalidate();
+        mainChatWindow.repaint();
+        //scrollPane.revalidate();
     }
 
     protected void paintComponent(Graphics g) {
@@ -109,5 +157,32 @@ public class ChatBox extends JPanel {
         g.fillRoundRect(0, 0, getSize().width - 1 ,
                 getSize().height - 1 , 20, 20);
 
+    }
+
+    private int getTextWidth(String text){
+        //calculating the number of lines required for this particular message:
+        AffineTransform affinetransform = new AffineTransform();
+        FontRenderContext frc = new FontRenderContext(affinetransform,true,true);
+        Font font = new Font(Font.SANS_SERIF, Font.BOLD, 13);
+        int textWidth = (int)(font.getStringBounds(text, frc).getWidth());
+        return textWidth;
+    }
+}
+
+class ChatMessage {
+    private String message;
+    private boolean isOpponent;
+
+    ChatMessage(String message, boolean isOpponent) {
+        this.message = message;
+        this.isOpponent = isOpponent;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public boolean isOpponent() {
+        return isOpponent;
     }
 }
