@@ -119,8 +119,8 @@ public class Tile extends JPanel {
         if (piece != null) {
             highlightedCoordinates = piece.getValidDestinations(boardMatrix);
         }
-        Board.revalidate();
-        Board.repaint();
-        this.repaint();
+        //Board.revalidate();
+        //Board.repaint();
+        //this.repaint();
     }
 }
