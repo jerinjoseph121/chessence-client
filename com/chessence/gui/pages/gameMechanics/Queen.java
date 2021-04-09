@@ -16,22 +16,30 @@ public class Queen extends AbstractPiece {
 
         ArrayList<int[]> possibleDistances = new ArrayList<>();
 
+        // Pathway states the direction the piece will move
         int[][] pathways = {{1, 0}, {0, 1}, {1, 1}, {-1, 0},
                 {0, -1}, {-1, -1}, {1, -1}, {-1, 1}};
 
+        int x = this.getCoordinates().getKey();
+        int y = this.getCoordinates().getValue();
+
+        //Pathway structure helps to create possibleDistances
         for(var path : pathways){
-            for(int i=1; i<16; i++){
+            for(int i=1; i<8; i++){
+                if (!((((x + (path[0]*i)) >= 0) && ((x + (path[0]*i)) <= 7)) && (((y + (path[1]*i)) >= 0) && ((y + (path[1]*i)) <= 7))))
+                    continue;
+
+                //Prevents movement if another piece blocks it
+                if(boardMatrix[x+(path[0]*i)][y+(path[1]*i)] != null){
+                    possibleDistances.add(new int[]{path[0]*i, path[1]*i});
+                    break;
+                }
+
                 possibleDistances.add(new int[]{path[0]*i, path[1]*i});
             }
         }
 
         for (var distance : possibleDistances) {
-
-            int x = this.getCoordinates().getKey();
-            int y = this.getCoordinates().getValue();
-
-            if (!((((x + distance[0]) >= 0) && ((x + distance[0]) <= 7)) && (((y + distance[1]) >= 0) && ((y + distance[1]) <= 7))))
-                continue;
 
             if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].getColor() == this.getColor()))
                 continue;
