@@ -1,7 +1,12 @@
 package com.chessence.gui.pages.components;
 
 import com.chessence.gui.pages.gameMechanics.AbstractPiece;
+import com.chessence.gui.pages.gameMechanics.Pawn;
 import com.chessence.gui.pages.gameMechanics.King;
+import com.chessence.gui.pages.gameMechanics.Queen;
+import com.chessence.gui.pages.gameMechanics.Knight;
+import com.chessence.gui.pages.gameMechanics.Bishop;
+import com.chessence.gui.pages.gameMechanics.Rook;
 import javafx.util.Pair;
 
 import javax.swing.*;
@@ -27,8 +32,33 @@ public class Board extends JPanel {
         {
             for(int j=0; j<8; j++)
             {
-                King king = new King(new Pair<Integer, Integer>(i, j), "black");
-                boardMatrix[i][j] = king;
+                if(i==0){
+                    if(j==0 || j==7){
+                        Rook rook = new Rook(new Pair<Integer, Integer>(i, j), "black");
+                        boardMatrix[i][j] = rook;
+                    }
+                    else if(j==1 || j==6){
+                        Knight knight = new Knight(new Pair<Integer, Integer>(i, j), "black");
+                        boardMatrix[i][j] = knight;
+                    }
+                    else if(j==2 || j==5){
+                        Bishop bishop = new Bishop(new Pair<Integer, Integer>(i, j), "black");
+                        boardMatrix[i][j] = bishop;
+                    }
+                    else if(j==3){
+                        Queen queen = new Queen(new Pair<Integer, Integer>(i, j), "black");
+                        boardMatrix[i][j] = queen;
+                    }
+                    else if(j==4){
+                        King king = new King(new Pair<Integer, Integer>(i, j), "black");
+                        boardMatrix[i][j] = king;
+                    }
+                }
+                else{
+                    Pawn pawn = new Pawn(new Pair<Integer, Integer>(i, j), "black");
+                    boardMatrix[i][j] = pawn;
+                }
+
             }
         }
 
@@ -36,8 +66,32 @@ public class Board extends JPanel {
         {
             for(int j=0; j<8; j++)
             {
-                King king = new King(new Pair<Integer, Integer>(i, j), "white");
-                boardMatrix[i][j] = king;
+                if(i==7){
+                    if(j==0 || j==7){
+                        Rook rook = new Rook(new Pair<Integer, Integer>(i, j), "white");
+                        boardMatrix[i][j] = rook;
+                    }
+                    else if(j==1 || j==6){
+                        Knight knight = new Knight(new Pair<Integer, Integer>(i, j), "white");
+                        boardMatrix[i][j] = knight;
+                    }
+                    else if(j==2 || j==5){
+                        Bishop bishop = new Bishop(new Pair<Integer, Integer>(i, j), "white");
+                        boardMatrix[i][j] = bishop;
+                    }
+                    else if(j==3){
+                        Queen queen = new Queen(new Pair<Integer, Integer>(i, j), "white");
+                        boardMatrix[i][j] = queen;
+                    }
+                    else if(j==4){
+                        King king = new King(new Pair<Integer, Integer>(i, j), "white");
+                        boardMatrix[i][j] = king;
+                    }
+                }
+                else{
+                    Pawn pawn = new Pawn(new Pair<Integer, Integer>(i, j), "white");
+                    boardMatrix[i][j] = pawn;
+                }
             }
         }
 
