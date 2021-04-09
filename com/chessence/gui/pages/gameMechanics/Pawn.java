@@ -48,6 +48,12 @@ public class Pawn extends AbstractPiece {
             if ((this.getCoordinates() != startPosition) && ((distance[0] == 2) || (distance[0] == -2)))
                 continue;
 
+            //Wont allow to start 2 step move if another piece blocks it
+            if((distance[0] == 2) && (boardMatrix[x + 1][y] != null))
+                continue;
+            if((distance[0] == -2) && (boardMatrix[x - 1][y] != null))
+                continue;
+
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
         return validDestinations;
