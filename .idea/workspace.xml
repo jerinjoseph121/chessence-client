@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="added text bubbles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
