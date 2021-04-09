@@ -146,8 +146,8 @@ public class ChatBox extends JPanel {
         mainChatWindow.add(new HorizontalSpace((int)W, 0));
         mainChatWindow.setPreferredSize(new Dimension((int)(W*0.92), totalHeighOfWindow));
         scrollPane.getViewport().setViewPosition(new Point(0, totalHeighOfWindow));
-        mainChatWindow.revalidate();
-        mainChatWindow.repaint();
+        if(!mainChatWindow.isValid())
+            mainChatWindow.validate();
         //scrollPane.revalidate();
     }
 

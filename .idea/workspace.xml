@@ -2,12 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="added text bubbles">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../javafx-sdk-16/lib" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -55,7 +67,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.chessence.Main" />
       <module name="chessence-client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\javafx-sdk-16\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\java\jdk-11.0.9\javafx-sdk-16\lib&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chessence.*" />
