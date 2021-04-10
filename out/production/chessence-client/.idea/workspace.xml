@@ -1,58 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="added text bubbles">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+    <list default="true" id="8607f2df-df6d-4433-adaa-10da46708f43" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chessence-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/ChatBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1qZWRxaC6pd2dI13aJbbqv9Prbu" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.chessence.gui.pages.components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Namrata Prasad\IdeaProjects\chessence-client-2\com\chessence\gui\images" />
-    </key>
-  </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Java" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="chessence-client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.chessence.Main" />
       <module name="chessence-client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\java\jdk-11.0.9\javafx-sdk-16\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chessence.*" />
@@ -63,59 +58,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Java" />
+      <item itemvalue="Application.Main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="" />
-      <created>1617287587513</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1617287587513</updated>
-      <workItem from="1617298909945" duration="146000" />
-      <workItem from="1617418920540" duration="6840000" />
-      <workItem from="1617484530141" duration="11068000" />
-      <workItem from="1617556137197" duration="152000" />
-      <workItem from="1617622520171" duration="24536000" />
-    </task>
-    <task id="LOCAL-00001" summary="modified spectators">
-      <created>1617299001237</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1617299001237</updated>
-    </task>
-    <task id="LOCAL-00002" summary="modified chatpanel">
-      <created>1617634792492</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1617634792492</updated>
-    </task>
-    <task id="LOCAL-00003" summary="modified chatbox">
-      <created>1617648951422</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1617648951422</updated>
-    </task>
-    <task id="LOCAL-00004" summary="added text bubbles">
-      <created>1617671638950</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1617671638950</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -128,13 +82,6 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified spectators" />
-    <MESSAGE value="modified chatpanel" />
-    <MESSAGE value="modified chatbox" />
-    <MESSAGE value="added text bubbles" />
-    <option name="LAST_COMMIT_MESSAGE" value="added text bubbles" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/chessence_client$Main.ic" NAME="Main Coverage Results" MODIFIED="1617880299208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
