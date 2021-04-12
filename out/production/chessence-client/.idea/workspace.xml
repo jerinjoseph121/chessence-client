@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="added text bubbles">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="9b5c3b9a-4366-43e1-9f8c-f60a1e8f01af" name="Default Changelist" comment="added text bubbles" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,7 +48,7 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.chessence.Main" />
       <module name="chessence-client" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\java\jdk-11.0.9\javafx-sdk-16\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\java\jdk-11.0.9\javafx-sdk-16\lib&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.chessence.*" />
