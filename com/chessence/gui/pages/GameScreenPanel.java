@@ -1,6 +1,7 @@
 package com.chessence.gui.pages;
 
 import com.chessence.gui.pages.components.*;
+import com.chessence.gui.pages.gameMechanics.AbstractPiece;
 import com.sun.scenario.effect.Color4f;
 import javafx.util.Pair;
 
@@ -11,6 +12,8 @@ import java.awt.event.*;
 
 
 public class GameScreenPanel extends ParentPanel implements ActionListener {
+    private boolean isPlayerWhite = true;
+    //private AbstractPiece boardMatrix[][] = new AbstractPiece[8][8];
     public JButton EXIT = new RoundedButton((CreateRoomPanel.Player_Status == 'P'?"Forfeit Match" : "Leave Lobby"),new Color(0xE79E4F), new Color(0xB8742A), 15);
 
     public GameScreenPanel(JFrame frame, CardLayout cardLayout){
@@ -54,7 +57,7 @@ public class GameScreenPanel extends ParentPanel implements ActionListener {
         chess_panel.add(new HorizontalSpace(widthOfFrame, 0));
 
         //adding the chess board:
-        chess_panel.add(new Board(width_chess_panel, heightOfFrame), BorderLayout.CENTER);
+        chess_panel.add(new Board(width_chess_panel, heightOfFrame, isPlayerWhite), BorderLayout.CENTER);
 
         //adding horizontal space of 0 so next component goes to next line:
         chess_panel.add(new HorizontalSpace(widthOfFrame, 0));

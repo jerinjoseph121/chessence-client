@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class King extends AbstractPiece {
 
-    public King(Pair<Integer, Integer> coordinates, String color) {
-        super(coordinates, color, "K");    //K -> KING
+    public King(Pair<Integer, Integer> coordinates, boolean isWhite) {
+        super(coordinates, isWhite, "K");    //K -> KING
     }
 
     @Override
@@ -23,7 +23,7 @@ public class King extends AbstractPiece {
             if (!((((x + distance[0]) >= 0) && ((x + distance[0]) <= 7)) && (((y + distance[1]) >= 0) && ((y + distance[1]) <= 7))))
                 continue;
 
-            if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].getColor() == this.getColor()))
+            if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].isWhite() == this.isWhite()))
                 continue;
 
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
