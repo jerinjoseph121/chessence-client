@@ -18,8 +18,8 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
     public static char Player_Status = 'P';
     public static boolean isPrivate = true;
 
-    public static String[] PLAYERS = {"Beeta Samad", "-"};
-    public static String[] SPECTATORS = {"Ritika_Singh", "Namrata_Prasad", "-", "-"};
+    public static String[] PLAYERS = {"-", "-"};
+    public static String[] SPECTATORS = {"-", "-", "-", "-"};
 
     //--------------------------------------------------------------------------------------//
 
@@ -63,7 +63,7 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
         ///////////// BODY /////////////
 
         //initializing body panel component
-        Body bodyPanel = new Body();
+        Body bodyPanel = new Body(currentRoomID);
         bodyPanel.setOpaque(false);
 
         ///////////// FOOTER /////////////

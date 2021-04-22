@@ -7,6 +7,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.EmptyBorder;
 
 import com.chessence.gui.pages.CreateRoomPanel;
+import com.chessence.gui.pages.ParentPanel;
 import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.*;
 
 import java.awt.*;
@@ -25,12 +26,14 @@ public class Body extends JPanel {
     JPanel centerPanel;
     JPanel bottomPanel;
 
+    JLabel roomIDValueLabel;
+
     PlayersPanel playersPanel;
     SpectatorsPanel spectatorsPanel;
 
 
-    public Body(){
-
+    public Body(String currentRoomId){
+        ROOM_ID = currentRoomId;
         ////////////////////////////// TOP PANEL//////////////////////////////
         topPanel = new JPanel();
 
@@ -46,7 +49,6 @@ public class Body extends JPanel {
         LineBorder border = new LineBorder(Color.decode(BROWN), 3, true);
         Border margin = new EmptyBorder(3, 12, 3, 12);
 
-        JLabel roomIDValueLabel;
         roomIDValueLabel = new JLabel(ROOM_ID);
         roomIDValueLabel.setForeground(Color.decode(CREAM_ORANGE));
         roomIDValueLabel.setFont(new Font("Roboto", Font.PLAIN, 30));
@@ -155,6 +157,14 @@ public class Body extends JPanel {
 
         this.setOpaque(false);
         this.setVisible(true);
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if(this.ROOM_ID != ParentPanel.currentRoomID) {
+            this.ROOM_ID = ParentPanel.currentRoomID;
+            roomIDValueLabel.setText(this.ROOM_ID);
+        }
     }
 
 }
