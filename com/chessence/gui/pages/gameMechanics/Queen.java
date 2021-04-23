@@ -11,7 +11,7 @@ public class Queen extends AbstractPiece {
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix) {
+    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix, boolean check) {
         ArrayList<Pair<Integer, Integer>> validDestinations = new ArrayList<>();
 
         ArrayList<int[]> possibleDistances = new ArrayList<>();
@@ -46,6 +46,12 @@ public class Queen extends AbstractPiece {
 
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
+
+        if(GameRules.isCheck(this.isWhite()) && !check)
+            validDestinations.removeIf(move -> !GameRules.isSavedFromCheck(this, move, boardMatrix));
+
+        System.out.println("-----------------------------------------------------------");
+
         return validDestinations;
     }
 }

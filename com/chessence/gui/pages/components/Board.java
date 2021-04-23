@@ -1,5 +1,6 @@
 package com.chessence.gui.pages.components;
 
+import com.chessence.gui.pages.gameMechanics.GameRules;
 import com.chessence.gui.pages.gameMechanics.AbstractPiece;
 import com.chessence.gui.pages.gameMechanics.Pawn;
 import com.chessence.gui.pages.gameMechanics.King;
@@ -36,6 +37,7 @@ public class Board extends JPanel {
         //Initializing the board with all the pieces----------
         //for all the black pieces:
         //jerin was a racist so he put the black pieces first
+        // P.S: beeta is racist for thinking that putting black piece first is racist
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 8; j++) {
                 if (i == 0) {
@@ -109,6 +111,8 @@ public class Board extends JPanel {
             white = !white; //alternatively changing the color of the tile from white and black as a new row is occurred
         }
 
+        GameRules rules = new GameRules(boardMatrix);
+
         super.setPreferredSize(size);
         super.setOpaque(false);
 
@@ -138,6 +142,7 @@ public class Board extends JPanel {
                 if(Tile.highlightedCoordinates!=null && Tile.highlightedCoordinates.contains(new Pair<>(x, y)))
                     tileMatrix[x][y].tileUpdate(white, new Pair<>(x, y), len, boardMatrix, tileMatrix);
                 this.add(tileMatrix[x][y]);
+
                 white = !white;
             }
             white = !white;

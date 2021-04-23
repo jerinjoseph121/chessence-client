@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 import com.chessence.gui.pages.gameMechanics.AbstractPiece;
+import com.chessence.gui.pages.gameMechanics.King;
+import com.chessence.gui.pages.gameMechanics.GameRules;
 import javafx.util.Pair;
 
 import javax.swing.*;
@@ -70,14 +72,17 @@ public class Tile extends JPanel {
     }
 
     //the validateTiles function validates only those tiles mentioned in the arguments
-    private void validateTiles(ArrayList<Pair<Integer, Integer>> highlightedCoordinates) {
+    private void validateTiles(ArrayList<Pair<Integer, Integer>> highlightedCoordinates, AbstractPiece boardMatrix[][]) {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if ((highlightedCoordinates != null && highlightedCoordinates.contains(tileMatrix[i][j].tileCoordinates)) || (tileMatrix[i][j].tileCoordinates == currentSelected)) {
                     tileMatrix[i][j].validate();
                     tileMatrix[i][j].repaint();
                 }
-
+                else if(boardMatrix[i][j] instanceof King) {
+                    tileMatrix[i][j].validate();
+                    tileMatrix[i][j].repaint();
+                }
             }
         }
     }
@@ -99,7 +104,7 @@ public class Tile extends JPanel {
                 //is immediately set to false after validating the required tiles so as to not do multiple unnecessary revalidations
                 //yea.. java is weird.
                 isUpdated = true;
-                validateTiles(highlightedCoordinates);
+                validateTiles(highlightedCoordinates, boardMatrix);
             }
 
             //Removing the outdated image on the current tile:
@@ -124,19 +129,26 @@ public class Tile extends JPanel {
         }
 
         //Updating the mouse listener function cuz the pieces have changed:
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                mouseClickAction();
-            }
-        });
+//        this.addMouseListener(new MouseAdapter() {
+//            @Override
+//            public void mouseClicked(MouseEvent e) {
+//                mouseClickAction();
+//            }
+//        });
 
         super.paintComponent(g);
 
         //setting the appropriate color of the tile:
         isHighlighted = highlightedCoordinates != null && highlightedCoordinates.contains(this.tileCoordinates);
         var color = new Color(isHighlighted ? 0x61ABF0 : (isWhite ? 0xFFFFFF : 0x36454F));
-        color = this.tileCoordinates == currentSelected ? new Color((isWhite ? 0x999999 : 0x26333b)) : color;
+        color = ((this.tileCoordinates == currentSelected) && piece != null) ? new Color((isWhite ? 0x999999 : 0x26333b)) : color;
+
+        if(this.piece instanceof King){
+            if(GameRules.isCheck(this.piece.isWhite())){
+                color = new Color(0xE74C3C);
+            }
+        }
+
         this.setBackground(color);
         g.setColor(color);
         g.fill3DRect(0, 0, len, len, true);
@@ -170,6 +182,8 @@ public class Tile extends JPanel {
                 //update the boardMatrix with the move instruction:
                 Board.boardMatrix[currentSelected.getKey()][currentSelected.getValue()].move(tileCoordinates, boardMatrix);
 
+                GameRules.gameUpdate(boardMatrix);
+
                 //set all the variables to null has the piece is no more in the current tile:
                 highlightedCoordinates = null;
                 currentSelected = null;
@@ -187,7 +201,7 @@ public class Tile extends JPanel {
             highlightedCoordinates = null;
 
             //validate all the previously highlighted tiles so they're now not highlighted anymore cuz we set all the highlighted tiles to null:
-            validateTiles(prevHighlightedCoordinates);
+            validateTiles(prevHighlightedCoordinates, boardMatrix);
 
             //validate the previously selected tile:
             if (prevSelected != null && !isUpdated) {
@@ -196,8 +210,10 @@ public class Tile extends JPanel {
             }
 
             //if the current tile has a piece, and if it is clicked, update the highlightedCoordinates variable to show the possible destinations of the current tile:
-            if (piece != null && piece.isWhite() == Tile.isPlayerWhite) {
-                highlightedCoordinates = piece.getValidDestinations(boardMatrix);
+            // ---- && piece.isWhite() == Tile.isPlayerWhite ---- //
+            if (piece != null) {
+                System.out.println("Tile Validation");
+                highlightedCoordinates = piece.getValidDestinations(boardMatrix, false);
             }
         }
     }
