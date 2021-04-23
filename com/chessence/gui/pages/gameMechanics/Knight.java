@@ -11,7 +11,7 @@ public class Knight extends AbstractPiece {
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix) {
+    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix, boolean check) {
         ArrayList<Pair<Integer, Integer>> validDestinations = new ArrayList<>();
 
         int[][] possibleDistances = {{1, 2}, {2, 1}, {-1, 2}, {2, -1},

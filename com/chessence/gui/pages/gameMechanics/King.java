@@ -6,15 +6,25 @@ import java.util.ArrayList;
 
 public class King extends AbstractPiece {
 
+    private AbstractPiece threatPiece;
+
     public King(Pair<Integer, Integer> coordinates, boolean isWhite) {
         super(coordinates, isWhite, "K");    //K -> KING
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix) {
+    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix, boolean check) {
         ArrayList<Pair<Integer, Integer>> validDestinations = new ArrayList<>();
         int[][] possibleDistances = {{1, 0}, {0, 1}, {1, 1}, {-1, 0},
                 {0, -1}, {-1, -1}, {1, -1}, {-1, 1}};
+
+        //Storing the threat moves in this array
+        ArrayList<Pair<Integer, Integer>> threatDestinations = new ArrayList<>();
+        if(this.isWhite())
+            threatDestinations = GameRules.getBlackMoves();
+        else
+            threatDestinations = GameRules.getWhiteMoves();
+
         for (var distance : possibleDistances) {
 
             int x = this.getCoordinates().getKey();
@@ -26,8 +36,12 @@ public class King extends AbstractPiece {
             if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].isWhite() == this.isWhite()))
                 continue;
 
+            if (threatDestinations.contains(new Pair<Integer, Integer>(x + distance[0], y + distance[1])))
+                continue;
+
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
+
         return validDestinations;
     }
 }
