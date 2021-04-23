@@ -1,5 +1,7 @@
 package com.chessence.gui.pages;
 
+import com.chessence.ClientReader;
+import com.chessence.ClientWriter;
 import com.chessence.Message;
 import com.chessence.gui.pages.components.*;
 import com.chessence.gui.pages.components.TextField;
@@ -27,17 +29,17 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
     private final JButton createRoomButton = new RoundedButton("Create a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
     private final JButton joinRoomButton = new RoundedButton("Join a Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
     private final JButton playWithRandomsButton = new RoundedButton("Play with Randoms", new Color(0xEE9946), new Color(0xbd6e22), 30);
-    public Socket clientSocket;
-    public ObjectOutputStream objectOutputStream;
-    public ObjectInputStream objectInputStream;
+    public static Socket clientSocket;
+    public static ObjectOutputStream objectOutputStream;
+    public static ObjectInputStream objectInputStream;
 
     JTextField usernameField;
 
     public MainMenuPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream) {
         super(frame, cardLayout);
-        this.clientSocket = clientSocket;
-        this.objectOutputStream = objectOutputStream;
-        this.objectInputStream = objectInputStream;
+        MainMenuPanel.clientSocket = clientSocket;
+        MainMenuPanel.objectOutputStream = objectOutputStream;
+        MainMenuPanel.objectInputStream = objectInputStream;
 
         this.setLayout(new BorderLayout());
         //getting current frame size:
@@ -75,10 +77,10 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
         usernameField.setFont(getFont("Roboto-Medium", getResponsiveFontSize(32)));
 
         topPanel.add(usernameField);
-        topPanel.add(new HorizontalSpace(widthOfFrame, (int)(0.074074*heightOfFrame)));
+        topPanel.add(new HorizontalSpace(widthOfFrame, (int) (0.074074 * heightOfFrame)));
 
-        int buttonWidth = (int)(widthOfFrame*((float)600/(float)1920));
-        int buttonHeight = (int)(heightOfFrame*((float)100/(float)1080));
+        int buttonWidth = (int) (widthOfFrame * ((float) 600 / (float) 1920));
+        int buttonHeight = (int) (heightOfFrame * ((float) 100 / (float) 1080));
         int buttonFontSize = getResponsiveFontSize(40);
         int buttonGap = 10;
 
@@ -137,11 +139,10 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
     }
 
     //update player function
-    public void updatePlayer(){
-        if(CreateRoomPanel.Player_Status == 'P'){
+    public void updatePlayer() {
+        if (CreateRoomPanel.Player_Status == 'P') {
             PlayersPanel.initializePlayer();
-        }
-        else{
+        } else {
             SpectatorsPanel.initializeSpectator();
         }
     }
@@ -149,17 +150,26 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        //System.out.println("PLAYERS: " + CreateRoomPanel.PLAYERS[0] + ", " + CreateRoomPanel.PLAYERS[1]);
+        //CreateRoomPanel.PLAYERS[0] = "-";
+        //PlayersPanel.updatePlayerNames();
         //updating the name of the player
-        username = usernameField.getText();
+        username = usernameField.getText().trim().replaceAll(",", "").replaceAll(" ", "_");
         updatePlayer();
 
         if (e.getSource() == exitButton) {
+            try {
+                this.objectInputStream.close();
+                this.objectOutputStream.close();
+                this.clientSocket.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
             frame.dispose();    //close the frame
         }
 
-        if(e.getSource() == createRoomButton){
+        if (e.getSource() == createRoomButton) {
             cardLayout.show(container, "LoadingScreen");
-            /**/
             //create room request:
             try {
                 var newLobbyMessage = new Message("", "lobbyInfo", true);
@@ -186,14 +196,21 @@ public class MainMenuPanel extends ParentPanel implements ActionListener {
                     continue;
                 }
             }
+            //Thread writingThread = new ClientWriter(clientSocket, objectOutputStream);
+            CreateRoomPanel.clearSpecatators();
+            CreateRoomPanel.clearPlayers();
+            updatePlayer();
+            Thread readingThread = new ClientReader(clientSocket, objectInputStream);
+            readingThread.start();
+            //writingThread.start();
             cardLayout.show(container, "CreateRoom");
         }
 
-        if(e.getSource() == joinRoomButton){
+        if (e.getSource() == joinRoomButton) {
             cardLayout.show(container, "JoinRoom");
         }
 
-        if(e.getSource() == playWithRandomsButton){
+        if (e.getSource() == playWithRandomsButton) {
             cardLayout.show(container, "LoadingScreen");
         }
     }

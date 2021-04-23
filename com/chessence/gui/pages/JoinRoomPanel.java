@@ -1,11 +1,13 @@
 package com.chessence.gui.pages;
 
+import com.chessence.ClientReader;
 import com.chessence.Message;
 import com.chessence.gui.pages.components.HorizontalLine;
 import com.chessence.gui.pages.components.HorizontalSpace;
 import com.chessence.gui.pages.components.RoundedButton;
 import com.chessence.gui.pages.components.TextField;
 import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.PlayersPanel;
+import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.SpectatorsPanel;
 import com.sun.javafx.scene.traversal.ParentTraversalEngine;
 
 import javax.swing.*;
@@ -29,7 +31,7 @@ public class JoinRoomPanel extends ParentPanel implements ActionListener {
     public ObjectOutputStream objectOutputStream;
     public ObjectInputStream objectInputStream;
 
-    public JoinRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream){
+    public JoinRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream) {
         super(frame, cardLayout);
         this.clientSocket = clientSocket;
         this.objectOutputStream = objectOutputStream;
@@ -76,11 +78,11 @@ public class JoinRoomPanel extends ParentPanel implements ActionListener {
         roomIdField = new TextField(400, 50, "TEST123");
         roomIdField.setFont(getFont("Roboto-Medium", getResponsiveFontSize(32)));
         topPanel.add(roomIdField);
-        topPanel.add(new HorizontalSpace(widthOfFrame, (int)(0.074074*heightOfFrame)));
+        topPanel.add(new HorizontalSpace(widthOfFrame, (int) (0.074074 * heightOfFrame)));
 
         topPanel.add(new HorizontalSpace(widthOfFrame, 10)); //newLine
-        int buttonWidth = (int)(widthOfFrame*((float)700/(float)1920));
-        int buttonHeight = (int)(heightOfFrame*((float)100/(float)1080));
+        int buttonWidth = (int) (widthOfFrame * ((float) 700 / (float) 1920));
+        int buttonHeight = (int) (heightOfFrame * ((float) 100 / (float) 1080));
         int buttonFontSize = getResponsiveFontSize(40);
         joinRoomButton.setPreferredSize(new Dimension(buttonWidth, buttonHeight));
         joinRoomButton.setFont(getFont("Rambla-Bold", buttonFontSize));
@@ -108,49 +110,64 @@ public class JoinRoomPanel extends ParentPanel implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource()==button){
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button) {
             frame.dispose();
         }
 
-        if(e.getSource() == joinRoomButton){
-
+        if (e.getSource() == joinRoomButton) {
+            cardLayout.show(container, "LoadingScreen");
             String roomId = roomIdField.getText();
 
             //socket code to work before joining the room:
-                Message roomIdMessage = new Message(roomId, "lobbyInfo", false);
-                roomIdMessage.setSecondaryMessage(ParentPanel.username);
+            Message roomIdMessage = new Message(roomId, "lobbyInfo", false);
+            roomIdMessage.setSecondaryMessage(ParentPanel.username);
+            try {
+                objectOutputStream.writeObject(roomIdMessage);
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            try {
+                Message response = null;
                 try {
-                    objectOutputStream.writeObject(roomIdMessage);
+                    response = (Message) objectInputStream.readObject();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
-                while (true) {
-                    try {
-                        Message response = null;
-                        try {
-                            response = (Message) objectInputStream.readObject();
-                        } catch (IOException ioException) {
-                            ioException.printStackTrace();
-                        }
-                        if (response.getMessage().contains("_error")) {
-                            System.out.println("\nERROR: Enter a valid room ID!");
-                            break;
-                        } else if (response.getMessage().contains("_success")) {
-                            CreateRoomPanel.PLAYERS[0] = response.getSecondaryMessage().split(",")[0];
-                            PlayersPanel.playerOneName.setText(CreateRoomPanel.PLAYERS[0]);
-                            System.out.println("other players: " + response.getSecondaryMessage());
-                            ParentPanel.currentRoomID = roomId;
-                            cardLayout.show(container, "CreateRoom");
-                            break;
-                        }
-                    } catch (ClassNotFoundException ex) {
-                        ex.printStackTrace();
+                if (response.getMessage().contains("_error")) {
+                    System.out.println("\nERROR: Enter a valid room ID!");
+                    cardLayout.show(container, "JoinRoom");
+                } else if (response.getMessage().contains("_success")) {
+
+                    var splitNames = response.getSecondaryMessage().split("_#SPECTATORS#_");
+                    var playerNames = splitNames[0].split(",");
+                    CreateRoomPanel.clearPlayers();
+                    CreateRoomPanel.clearSpecatators();
+                    for (int i = 0; i < playerNames.length; i++) {
+                        CreateRoomPanel.PLAYERS[i] = playerNames[i];
                     }
+                    PlayersPanel.updatePlayerNames();
+
+                    if (splitNames.length == 2) {
+                        var spectatorNames = splitNames[1].split(",");
+                        for (int i = 0; i < spectatorNames.length; i++) {
+                            CreateRoomPanel.SPECTATORS[i] = spectatorNames[i];
+                        }
+                        SpectatorsPanel.updateSpecatators();
+                    }
+                    PlayersPanel.addPlayer();
+                    //PlayersPanel.fixJoinSpectatorsButtonPosition();
+                    ParentPanel.currentRoomID = roomId;
+                    Thread readingThread = new ClientReader(clientSocket, objectInputStream);
+                    readingThread.start();
+                    cardLayout.show(container, "CreateRoom");
                 }
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
         }
 
-        if(e.getSource()==exitButton){
+        if (e.getSource() == exitButton) {
             cardLayout.show(container, "MainMenu");
         }
     }

@@ -14,14 +14,14 @@ public class GuiMain extends JFrame {
     public JFrame frame = new JFrame();
     public JPanel cards;
     private CardLayout cl = new CardLayout();
-    public Socket clientSocket;
-    public ObjectOutputStream objectOutputStream;
-    public ObjectInputStream objectInputStream;
+    public static Socket clientSocket;
+    public static ObjectOutputStream objectOutputStream;
+    public static ObjectInputStream objectInputStream;
 
     public GuiMain(Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream) {
-        this.clientSocket = clientSocket;
-        this.objectOutputStream = objectOutputStream;
-        this.objectInputStream = objectInputStream;
+        GuiMain.clientSocket = clientSocket;
+        GuiMain.objectOutputStream = objectOutputStream;
+        GuiMain.objectInputStream = objectInputStream;
     }
 
     public void startUp() {

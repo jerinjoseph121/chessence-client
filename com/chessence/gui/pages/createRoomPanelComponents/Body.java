@@ -174,8 +174,15 @@ public class Body extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.startGameButton) {
-            System.out.println("Button clicked!");
-            ParentPanel.cardLayout.show(ParentPanel.container, "LoadingScreen");
+            if (!CreateRoomPanel.PLAYERS[0].equals("-") && !CreateRoomPanel.PLAYERS[1].equals("-"))
+            {
+                ParentPanel.cardLayout.show(ParentPanel.container, "GameScreen");
+            }
+            else
+            {
+                System.out.println("\nNot enough players!");
+            }
+
         }
     }
 

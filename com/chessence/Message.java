@@ -9,7 +9,6 @@ public class Message implements Serializable {
     private boolean isNewLobbyRequest = false;
     private static final long serialVersionUID = 7989L;
 
-
     public Message(String message){
         this.message = message;
         this.typeOfMessage = "chat";
