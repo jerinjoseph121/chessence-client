@@ -36,17 +36,17 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
 
     static Font leaveRoomButtonFont;
 
-    public Socket clientSocket;
-    public ObjectOutputStream objectOutputStream;
-    public ObjectInputStream objectInputStream;
+    public static Socket clientSocket;
+    public static ObjectOutputStream objectOutputStream;
+    public static ObjectInputStream objectInputStream;
 
     private final RoundedButton leaveRoomButton;
 
     public CreateRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream) {
         super(frame, cardLayout);
-        this.clientSocket = clientSocket;
-        this.objectOutputStream = objectOutputStream;
-        this.objectInputStream = objectInputStream;
+        CreateRoomPanel.clientSocket = clientSocket;
+        CreateRoomPanel.objectOutputStream = objectOutputStream;
+        CreateRoomPanel.objectInputStream = objectInputStream;
 
         //getting current frame size:
         Rectangle r = frame.getBounds();

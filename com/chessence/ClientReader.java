@@ -1,9 +1,13 @@
 package com.chessence;
 
 import com.chessence.gui.pages.CreateRoomPanel;
+import com.chessence.gui.pages.ParentPanel;
+import com.chessence.gui.pages.components.Board;
 import com.chessence.gui.pages.components.ChatBox;
+import com.chessence.gui.pages.components.Tile;
 import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.PlayersPanel;
 import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.SpectatorsPanel;
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -102,14 +106,44 @@ public class ClientReader extends Thread {
                         PlayersPanel.updatePlayerNames();
                         SpectatorsPanel.updateSpecatators();
                     }
-
+                    //=======================================================================================================
+                    //quitting this while loop and hence finishing the thread itself.
                     else if(((Message) receivedObject).getTypeOfMessage().contains("playerLeftLobby")){
-                        //quitting this while loop and hence finishing the thread itself.
                         break;
+                    }
+
+                    else if(((Message) receivedObject).getTypeOfMessage().contains("gameStarted")){
+                        ParentPanel.cardLayout.show(ParentPanel.container, "GameScreen");
                     }
                 } else if (receivedObject instanceof Move) {
                     var move = (Move) receivedObject;
-                    System.out.println("\nMove operation: " + move.getFrom()[0] + ", " + move.getFrom()[1] + "] -> [" + move.getTo()[0] + ", " + move.getTo()[1] + "]");
+
+                    //updating on our board:
+
+                    System.out.println("\nMoving on our board! ");
+                    //update the boardMatrix with the move instruction:
+                    Board.boardMatrix = Board.boardMatrix[move.getFrom()[0]][move.getFrom()[1]].move(new Pair<>(move.getTo()[0],  move.getTo()[1]), Board.boardMatrix);
+
+                    //set all the variables to null has the piece is no more in the current tile:
+                    Tile.highlightedCoordinates = null;
+                    Tile.currentSelected = null;
+
+                    //Board.tileMatrix[move.getTo()[0]][move.getTo()[1]].updateImage(Board.boardMatrix[move.getTo()[0]][move.getTo()[1]].getImagePath());
+                    //Board.updateBoard();
+
+                    //repainting the "from" tile:
+                    Board.tileMatrix[move.getFrom()[0]][move.getFrom()[1]].validate();
+                    Board.tileMatrix[move.getFrom()[0]][move.getFrom()[1]].repaint();
+
+                    //Board.tileMatrix[move.getTo()[0]][move.getTo()[1]].tileUpdate(toTile.isWhite, toTile.tileCoordinates, toTile.len, Board.boardMatrix, Board.tileMatrix);
+
+                    Board.tileMatrix[move.getTo()[0]][move.getTo()[1]].updateImage();
+                    Board.tileMatrix[move.getTo()[0]][move.getTo()[1]].validate();
+                    Board.tileMatrix[move.getTo()[0]][move.getTo()[1]].repaint();
+                    //
+                    //-----------------------
+
+                    System.out.println("\nMove operation: [" + move.getFrom()[0] + ", " + move.getFrom()[1] + "] -> [" + move.getTo()[0] + ", " + move.getTo()[1] + "]");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
