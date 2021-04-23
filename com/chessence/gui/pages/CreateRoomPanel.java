@@ -1,5 +1,6 @@
 package com.chessence.gui.pages;
 
+import com.chessence.Message;
 import com.chessence.gui.pages.components.HorizontalLine;
 import com.chessence.gui.pages.components.HorizontalSpace;
 
@@ -10,6 +11,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 public class CreateRoomPanel extends ParentPanel implements ActionListener {
 
@@ -29,10 +34,17 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
 
     static Font leaveRoomButtonFont;
 
+    public Socket clientSocket;
+    public ObjectOutputStream objectOutputStream;
+    public ObjectInputStream objectInputStream;
+
     private final RoundedButton leaveRoomButton;
 
-    public CreateRoomPanel(JFrame frame, CardLayout cardLayout){
+    public CreateRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream){
         super(frame, cardLayout);
+        this.clientSocket = clientSocket;
+        this.objectOutputStream = objectOutputStream;
+        this.objectInputStream = objectInputStream;
 
         //getting current frame size:
         Rectangle r = frame.getBounds();
@@ -98,6 +110,13 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
     public void actionPerformed(ActionEvent e){
         //returning to main menu
         if(e.getSource() == leaveRoomButton){
+            Message roomIdMessage = new Message("", "leaveLobby");
+            try {
+                objectOutputStream.writeObject(roomIdMessage);
+            } catch (IOException ioException) {
+                System.out.println("\nCouldn't leave the current lobby from the server-side.");
+                ioException.printStackTrace();
+            }
             cardLayout.show(container, "MainMenu");
         }
     }

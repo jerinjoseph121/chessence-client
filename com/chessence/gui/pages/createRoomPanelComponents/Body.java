@@ -11,8 +11,10 @@ import com.chessence.gui.pages.ParentPanel;
 import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Body extends JPanel {
+public class Body extends JPanel implements ActionListener {
 
     String ROOM_ID = "ABC123";
 
@@ -26,13 +28,15 @@ public class Body extends JPanel {
     JPanel centerPanel;
     JPanel bottomPanel;
 
+    RoundedButton startGameButton;
+
     JLabel roomIDValueLabel;
 
     PlayersPanel playersPanel;
     SpectatorsPanel spectatorsPanel;
 
 
-    public Body(String currentRoomId){
+    public Body(String currentRoomId) {
         ROOM_ID = currentRoomId;
         ////////////////////////////// TOP PANEL//////////////////////////////
         topPanel = new JPanel();
@@ -76,7 +80,6 @@ public class Body extends JPanel {
         topRightPanel.add(privateSwitch);
 
 
-
         topPanel.setLayout(new GridLayout(1, 2));
         topPanel.setOpaque(false);
         topPanel.add(topLeftPanel);
@@ -107,7 +110,7 @@ public class Body extends JPanel {
 
         middleCenterPanel.setBackground(Color.WHITE);
         middleCenterPanel.setOpaque(false);
-        middleCenterPanel.setLayout(new GridLayout(1,1));
+        middleCenterPanel.setLayout(new GridLayout(1, 1));
         middleCenterPanel.add(imgHolder);
         middleCenterPanel.setVisible(true);
 
@@ -139,9 +142,10 @@ public class Body extends JPanel {
 
         //adding start game button
         Font buttonFont = new Font("Roboto", Font.BOLD, 20);
-        RoundedButton startGameButton = new RoundedButton("Start Game",buttonFont, Color.decode(RED), Color.decode(CREAM_ORANGE),
+        startGameButton = new RoundedButton("Start Game", buttonFont, Color.decode(RED), Color.decode(CREAM_ORANGE),
                 Color.decode(DARK_CREAM), 10, new Dimension(200, 50));
         startGameButton.setFocusable(false);
+        startGameButton.addActionListener(this);
 
         bottomPanel.setOpaque(false);
         bottomPanel.add(startGameButton);
@@ -161,9 +165,17 @@ public class Body extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        if(this.ROOM_ID != ParentPanel.currentRoomID) {
+        if (this.ROOM_ID != ParentPanel.currentRoomID) {
             this.ROOM_ID = ParentPanel.currentRoomID;
             roomIDValueLabel.setText(this.ROOM_ID);
+        }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == this.startGameButton) {
+            System.out.println("Button clicked!");
+            ParentPanel.cardLayout.show(ParentPanel.container, "LoadingScreen");
         }
     }
 

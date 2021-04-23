@@ -9,15 +9,29 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 
 public class GameScreenPanel extends ParentPanel implements ActionListener {
     private boolean isPlayerWhite = true;
+
+    public Socket clientSocket;
+    public ObjectOutputStream objectOutputStream;
+    public ObjectInputStream objectInputStream;
+
     //private AbstractPiece boardMatrix[][] = new AbstractPiece[8][8];
     public JButton EXIT = new RoundedButton((CreateRoomPanel.Player_Status == 'P'?"Forfeit Match" : "Leave Lobby"),new Color(0xE79E4F), new Color(0xB8742A), 15);
 
-    public GameScreenPanel(JFrame frame, CardLayout cardLayout){
+    public GameScreenPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream){
         super(frame, cardLayout);
+
+        this.clientSocket = clientSocket;
+        this.objectOutputStream = objectOutputStream;
+        this.objectInputStream = objectInputStream;
+
+
         frame.setLocationRelativeTo(null);
         //Getting frame dimensions:
         Rectangle r = frame.getBounds();

@@ -42,9 +42,9 @@ public class GuiMain extends JFrame {
 
         //creating the panels:
         JPanel mainMenuPanel = new MainMenuPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
-        JPanel joinRoomPanel = new JoinRoomPanel(frame, cardLayout);
-        JPanel createRoomPanel = new CreateRoomPanel(frame, cardLayout);
-        JPanel gameScreenPanel = new GameScreenPanel(frame, cardLayout);
+        JPanel joinRoomPanel = new JoinRoomPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
+        JPanel createRoomPanel = new CreateRoomPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
+        JPanel gameScreenPanel = new GameScreenPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
         JPanel loadingPanel = new LoadingPanel(frame, cardLayout);
 
         //adding the panels to the container:
