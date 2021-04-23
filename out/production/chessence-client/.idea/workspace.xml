@@ -2,30 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8607f2df-df6d-4433-adaa-10da46708f43" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com/chessence/ClientReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com/chessence/ClientWriter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com/chessence/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/com/chessence/Move.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/ClientReader.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/ClientWriter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/Message.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/Move.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/GameRules.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/GameRules.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/chessence-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/CreateRoomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/CreateRoomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/JoinRoomPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/JoinRoomPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/MainMenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/ParentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/ParentPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/createRoomPanelComponents/Body.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/createRoomPanelComponents/Body.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/createRoomPanelComponents/bodyComponents/PlayersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/createRoomPanelComponents/bodyComponents/PlayersPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" afterDir="false" />
@@ -33,51 +19,31 @@
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/chessence-client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/CreateRoomPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/GameScreenPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/JoinRoomPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/LoadingPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/MainMenuPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/ParentPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatBox.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/ChatMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/FunctionalButtons.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/HorizontalLine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/HorizontalSpace.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/RoundedButton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/RoundedButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Specs.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/TextBubble$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/TextBubble.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/TextField.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/Body.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/OnOffSwitch.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/RoundedButton$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/RoundedButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/bodyComponents/PlayersPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/createRoomPanelComponents/bodyComponents/SpectatorsPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/AbstractPiece.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/King.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/GuiMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/AbstractPiece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/AbstractPiece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/King.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,13 +57,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/ClientWriter.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/GameScreenPanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/Move.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/MainMenuPanel.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/Message.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/Main.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/ClientReader.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/GuiMain.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1qyu6DgAni4Qezwz3wfqvOF6DXD" />
@@ -111,8 +85,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../javafx-sdk-16/lib" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -127,6 +101,8 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="com.chessence.Main" />
       <module name="chessence-client" />
       <option name="VM_PARAMETERS" value="--module-path C:\javafx-sdk-16\lib --add-modules javafx.controls,javafx.fxml" />

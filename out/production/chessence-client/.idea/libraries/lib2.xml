@@ -2,12 +2,23 @@
   <library name="lib">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../../../../../../javafx-sdk-16/lib" />
+      <root url="file://$PATH_TO_FX$" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="file://$PROJECT_DIR$/../../../../../../../javafx-sdk-16/lib" />
+      <root url="file://$PATH_TO_FX$" />
+      <root url="file://$PATH_TO_FX$/src/javafx.base" />
+      <root url="file://$PATH_TO_FX$/src/javafx.controls" />
+      <root url="file://$PATH_TO_FX$/src/javafx.fxml" />
+      <root url="file://$PATH_TO_FX$/src/javafx.graphics" />
+      <root url="file://$PATH_TO_FX$/src/javafx.media" />
+      <root url="file://$PATH_TO_FX$/src/javafx.swing" />
+      <root url="file://$PATH_TO_FX$/src/javafx.web" />
     </SOURCES>
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../../../../../../../javafx-sdk-16/lib" recursive="false" />
+    <jarDirectory url="file://$PATH_TO_FX$" recursive="false" type="SOURCES" />
     <jarDirectory url="file://$PROJECT_DIR$/../../../../../../../javafx-sdk-16/lib" recursive="false" type="SOURCES" />
   </library>
 </component>
