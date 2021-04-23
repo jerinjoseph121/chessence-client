@@ -133,7 +133,7 @@ public class GameRules {
         boolean isSaved;
 
         if(checkPiece.isWhite()) {
-//            createBlackMoves(boardMatrix);
+            createBlackMoves(boardMatrix);
 
             if(blackMoves.contains(whiteKing.getCoordinates())){
                 isSaved = false;
