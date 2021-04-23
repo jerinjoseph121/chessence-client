@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8607f2df-df6d-4433-adaa-10da46708f43" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/GameRules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Bishop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/GameRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/GameRules.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Knight.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +29,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/GameRules.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" root0="FORCE_HIGHLIGHTING" />
@@ -47,6 +37,7 @@
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/components/Board.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1qyu6DgAni4Qezwz3wfqvOF6DXD" />
   <component name="ProjectLevelVcsManager">
