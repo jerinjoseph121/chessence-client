@@ -11,7 +11,7 @@ public class Bishop extends AbstractPiece {
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix) {
+    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix, boolean check) {
         ArrayList<Pair<Integer, Integer>> validDestinations = new ArrayList<>();
 
         ArrayList<int[]> possibleDistances = new ArrayList<>();

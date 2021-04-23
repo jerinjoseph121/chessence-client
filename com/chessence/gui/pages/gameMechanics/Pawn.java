@@ -16,7 +16,7 @@ public class Pawn extends AbstractPiece {
     }
 
     @Override
-    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix) {
+    public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece[][] boardMatrix, boolean check) {
         ArrayList<Pair<Integer, Integer>> validDestinations = new ArrayList<>();
         int[][] possibleDistances = {{1, 0}, {1, 1}, {1, -1}, {-1, 0}, {-1, 1}, {-1, -1}, {2, 0}, {-2, 0}};
         for (var distance : possibleDistances) {

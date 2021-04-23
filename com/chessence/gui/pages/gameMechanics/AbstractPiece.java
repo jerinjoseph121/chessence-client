@@ -4,7 +4,7 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-public abstract class AbstractPiece {
+public abstract class AbstractPiece{
     private boolean isWhite;
     private Pair<Integer, Integer> coordinates;
     private String imagePath;
@@ -15,11 +15,11 @@ public abstract class AbstractPiece {
         this.imagePath = "../../images/chessPieces/fancy/" + ((!isWhite) ? "B" : "W") + imageNameSuffix + ".gif";
     }
 
-    abstract public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece boardMatrix[][]);
+    abstract public ArrayList<Pair<Integer, Integer>> getValidDestinations(AbstractPiece boardMatrix[][], boolean check);
 
     public AbstractPiece[][] move(Pair<Integer, Integer> coordinates, AbstractPiece boardMatrix[][]) {
         //FUNCTION TO MOVE THIS PARTICULAR PIECE:
-        if (getValidDestinations(boardMatrix).contains(coordinates)) {
+        if (getValidDestinations(boardMatrix, false).contains(coordinates)) {
             //check if the destination coordinate is a valid coordinate
             boardMatrix[this.coordinates.getKey()][this.coordinates.getValue()] = null;
             this.coordinates = coordinates;
