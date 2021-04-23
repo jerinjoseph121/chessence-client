@@ -1,9 +1,12 @@
 package com.chessence.gui.pages;
 
+import com.chessence.Message;
 import com.chessence.gui.pages.components.HorizontalLine;
 import com.chessence.gui.pages.components.HorizontalSpace;
 import com.chessence.gui.pages.components.RoundedButton;
 import com.chessence.gui.pages.components.TextField;
+import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.PlayersPanel;
+import com.sun.javafx.scene.traversal.ParentTraversalEngine;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -12,15 +15,25 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 public class JoinRoomPanel extends ParentPanel implements ActionListener {
     public JButton button = new JButton();
     private final JButton exitButton = new RoundedButton("Back", new Color(0x5F3136), new Color(0x59252b), 20);
     private final JButton joinRoomButton = new RoundedButton("Join Room", new Color(0xEE9946), new Color(0xbd6e22), 30);
-    private JTextField usernameField;
+    private JTextField roomIdField;
+    public Socket clientSocket;
+    public ObjectOutputStream objectOutputStream;
+    public ObjectInputStream objectInputStream;
 
-    public JoinRoomPanel(JFrame frame, CardLayout cardLayout){
+    public JoinRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream){
         super(frame, cardLayout);
+        this.clientSocket = clientSocket;
+        this.objectOutputStream = objectOutputStream;
+        this.objectInputStream = objectInputStream;
 
         //getting current frame size:
         Rectangle r = frame.getBounds();
@@ -60,9 +73,9 @@ public class JoinRoomPanel extends ParentPanel implements ActionListener {
         usernameLabel.setForeground(new Color(0xFFDEEE));
         topPanel.add(usernameLabel);
         //making the textfield:
-        usernameField = new TextField(400, 50, "TEST123");
-        usernameField.setFont(getFont("Roboto-Medium", getResponsiveFontSize(32)));
-        topPanel.add(usernameField);
+        roomIdField = new TextField(400, 50, "TEST123");
+        roomIdField.setFont(getFont("Roboto-Medium", getResponsiveFontSize(32)));
+        topPanel.add(roomIdField);
         topPanel.add(new HorizontalSpace(widthOfFrame, (int)(0.074074*heightOfFrame)));
 
         topPanel.add(new HorizontalSpace(widthOfFrame, 10)); //newLine
@@ -98,6 +111,43 @@ public class JoinRoomPanel extends ParentPanel implements ActionListener {
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==button){
             frame.dispose();
+        }
+
+        if(e.getSource() == joinRoomButton){
+
+            String roomId = roomIdField.getText();
+
+            //socket code to work before joining the room:
+                Message roomIdMessage = new Message(roomId, "lobbyInfo", false);
+                roomIdMessage.setSecondaryMessage(ParentPanel.username);
+                try {
+                    objectOutputStream.writeObject(roomIdMessage);
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+                while (true) {
+                    try {
+                        Message response = null;
+                        try {
+                            response = (Message) objectInputStream.readObject();
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+                        if (response.getMessage().contains("_error")) {
+                            System.out.println("\nERROR: Enter a valid room ID!");
+                            break;
+                        } else if (response.getMessage().contains("_success")) {
+                            CreateRoomPanel.PLAYERS[0] = response.getSecondaryMessage().split(",")[0];
+                            PlayersPanel.playerOneName.setText(CreateRoomPanel.PLAYERS[0]);
+                            System.out.println("other players: " + response.getSecondaryMessage());
+                            ParentPanel.currentRoomID = roomId;
+                            cardLayout.show(container, "CreateRoom");
+                            break;
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        ex.printStackTrace();
+                    }
+                }
         }
 
         if(e.getSource()==exitButton){

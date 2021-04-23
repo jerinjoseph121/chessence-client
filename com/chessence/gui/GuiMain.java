@@ -4,6 +4,9 @@ import com.chessence.gui.pages.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.*;
 
 public class GuiMain extends JFrame {
 
@@ -11,6 +14,15 @@ public class GuiMain extends JFrame {
     public JFrame frame = new JFrame();
     public JPanel cards;
     private CardLayout cl = new CardLayout();
+    public Socket clientSocket;
+    public ObjectOutputStream objectOutputStream;
+    public ObjectInputStream objectInputStream;
+
+    public GuiMain(Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream) {
+        this.clientSocket = clientSocket;
+        this.objectOutputStream = objectOutputStream;
+        this.objectInputStream = objectInputStream;
+    }
 
     public void startUp() {
 
@@ -29,10 +41,10 @@ public class GuiMain extends JFrame {
         container.setLayout(cardLayout);    //setting the layout of the content area as that of CardLayout
 
         //creating the panels:
-        JPanel mainMenuPanel = new MainMenuPanel(frame, cardLayout);
-        JPanel joinRoomPanel = new JoinRoomPanel(frame, cardLayout);
-        JPanel createRoomPanel = new CreateRoomPanel(frame, cardLayout);
-        JPanel gameScreenPanel = new GameScreenPanel(frame, cardLayout);
+        JPanel mainMenuPanel = new MainMenuPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
+        JPanel joinRoomPanel = new JoinRoomPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
+        JPanel createRoomPanel = new CreateRoomPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
+        JPanel gameScreenPanel = new GameScreenPanel(frame, cardLayout, clientSocket, objectOutputStream, objectInputStream);
         JPanel loadingPanel = new LoadingPanel(frame, cardLayout);
 
         //adding the panels to the container:

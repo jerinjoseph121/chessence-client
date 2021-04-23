@@ -21,9 +21,9 @@ public class ParentPanel extends JPanel {
 
     //-------------------------end of common data-----------------------------
 
-    protected JFrame frame;
-    protected CardLayout cardLayout;
-    protected Container container;
+    public static JFrame frame;
+    public static CardLayout cardLayout;
+    public static Container container;
 
     BufferedImage backgroundImage;
 

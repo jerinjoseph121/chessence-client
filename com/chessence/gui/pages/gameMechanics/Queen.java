@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Queen extends AbstractPiece {
 
-    public Queen(Pair<Integer, Integer> coordinates, String color) {
-        super(coordinates, color, "Q");    //Q -> QUEEN
+    public Queen(Pair<Integer, Integer> coordinates, boolean isWhite) {
+        super(coordinates, isWhite, "Q");    //Q -> QUEEN
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Queen extends AbstractPiece {
 
         for (var distance : possibleDistances) {
 
-            if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].getColor() == this.getColor()))
+            if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].isWhite() == this.isWhite()))
                 continue;
 
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Bishop extends AbstractPiece {
 
-    public Bishop(Pair<Integer, Integer> coordinates, String color) {
-        super(coordinates, color, "B");    //B -> BISHOP
+    public Bishop(Pair<Integer, Integer> coordinates, boolean isWhite) {
+        super(coordinates, isWhite, "B");    //B -> BISHOP
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Bishop extends AbstractPiece {
 
         for (var distance : possibleDistances) {
 
-            if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].getColor() == this.getColor()))
+            if ((boardMatrix[x + distance[0]][y + distance[1]] != null) && (boardMatrix[x + distance[0]][y + distance[1]].isWhite() == this.isWhite()))
                 continue;
 
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));

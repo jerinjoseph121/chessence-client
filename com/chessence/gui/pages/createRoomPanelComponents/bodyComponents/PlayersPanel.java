@@ -25,11 +25,11 @@ public class PlayersPanel extends JPanel implements ActionListener {
             Color.decode(CREAM_ORANGE), Color.decode(RED), Color.decode(DARK_RED),
             10, new Dimension(200, 40));
 
-    private static JPanel playerOneInfo;
-    private static JLabel playerOneName;
+    public static JPanel playerOneInfo;
+    public static JLabel playerOneName;
 
-    private static JPanel playerTwoInfo;
-    private static JLabel playerTwoName;
+    public static JPanel playerTwoInfo;
+    public static JLabel playerTwoName;
 
 
 
