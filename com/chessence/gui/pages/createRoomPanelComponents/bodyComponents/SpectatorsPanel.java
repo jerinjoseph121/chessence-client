@@ -127,6 +127,13 @@ public class SpectatorsPanel extends JPanel implements ActionListener {
         spectator3.setText(ParentPanel.username);
     }
 
+    public static void updateSpecatators() {
+        spectator1.setText(CreateRoomPanel.SPECTATORS[0]);
+        spectator2.setText(CreateRoomPanel.SPECTATORS[1]);
+        spectator3.setText(CreateRoomPanel.SPECTATORS[2]);
+        spectator4.setText(CreateRoomPanel.SPECTATORS[3]);
+    }
+
     //method to add a spectator into the panel
     public static void addSpectator(){
         CreateRoomPanel.Player_Status = 'S';

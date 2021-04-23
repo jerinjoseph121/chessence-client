@@ -23,9 +23,9 @@ import static java.lang.Math.min;
 
 public class Board extends JPanel {
     private Dimension size;
-    private int len;
-    private static AbstractPiece boardMatrix[][] = new AbstractPiece[8][8];
-    private static Tile tileMatrix[][] = new Tile[8][8];
+    public static int len;
+    public static AbstractPiece boardMatrix[][] = new AbstractPiece[8][8];
+    public static Tile tileMatrix[][] = new Tile[8][8];
     private boolean isPlayerWhite;
 
     public Board(int W, int H, boolean isPlayerWhite) {
@@ -116,6 +116,20 @@ public class Board extends JPanel {
         super.setPreferredSize(size);
         super.setOpaque(false);
 
+    }
+
+    public static void updateBoard(){
+        boolean white = true;
+        for (int x = 0; x <= 7; x++) {
+            for (int y = 0; y <= 7; y++) {
+                //updating all the tiles as and when the Board is repainted or revalidated or re-rendered:
+                //the tiles are kept up to date according to the boardMatrix[][]
+                if(Tile.highlightedCoordinates!=null && Tile.highlightedCoordinates.contains(new Pair<>(x, y)))
+                    tileMatrix[x][y].tileUpdate(white, new Pair<>(x, y), len, boardMatrix, tileMatrix);
+                white = !white;
+            }
+            white = !white;
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import com.chessence.gui.pages.gameMechanics.AbstractPiece;
 import com.chessence.gui.pages.gameMechanics.King;
@@ -18,16 +19,16 @@ public class Tile extends JPanel {
     private JLabel imageLabel = new JLabel();
     public static boolean isUpdated = false;
     public Pair<Integer, Integer> tileCoordinates;
-    private boolean isHighlighted, isWhite;
+    public boolean isHighlighted, isWhite;
     private AbstractPiece boardMatrix[][] = null;
     public static Pair<Integer, Integer> currentSelected = null;
     public static boolean isCurrentTurn = true;
     public static ArrayList<Pair<Integer, Integer>> highlightedCoordinates = null;
     public static boolean isPlayerWhite = false;
-    private Tile tileMatrix[][] = null;
-    private AbstractPiece piece;
-    private String imagePath;
-    private int len;
+    public Tile tileMatrix[][] = null;
+    public AbstractPiece piece;
+    public String imagePath;
+    public int len;
 
     public Tile(Boolean isWhite, Pair<Integer, Integer> tileCoordinates, int len, AbstractPiece boardMatrix[][], Tile tileMatrix[][]) {
         tileUpdate(isWhite, tileCoordinates, len, boardMatrix, tileMatrix);
@@ -39,8 +40,8 @@ public class Tile extends JPanel {
 
         //initializing all the data members:
         this.isHighlighted = highlightedCoordinates != null && highlightedCoordinates.contains(this.tileCoordinates);
-        this.tileMatrix = tileMatrix;
-        this.boardMatrix = boardMatrix;
+        this.tileMatrix = Board.tileMatrix;
+        this.boardMatrix = Board.boardMatrix;
         this.isWhite = isWhite;
         this.piece = boardMatrix[tileCoordinates.getKey()][tileCoordinates.getValue()];
         this.imagePath = piece != null ? piece.getImagePath() : null;
@@ -90,11 +91,10 @@ public class Tile extends JPanel {
     public void paintComponent(Graphics g) {
 
         //updating this.piece which represents the AbstractPiece object (or in simple words, the chess piece object) present on this tile:
-        this.piece = boardMatrix[this.tileCoordinates.getKey()][this.tileCoordinates.getValue()];
-
+        this.piece = Board.boardMatrix[this.tileCoordinates.getKey()][this.tileCoordinates.getValue()];
         //if this tile is not validated, validate it:
-        if (!isValid())
-            this.validate();
+        //if (!isValid())
+        this.validate();
 
         //if the current tile has a piece, then update all the highlighted tiles also
         //HIGHLIGHTED TILES are those tiles that turn blue to suggest you all the tiles that you can move your piece to.
@@ -115,14 +115,8 @@ public class Tile extends JPanel {
                     this.remove(c);
                 }
             }
-
             //Adding the image of the new piece that's on the current tile:
-            imagePath = piece.getImagePath();
-            imageLabel.setLayout(new BorderLayout());
-            imageLabel.setHorizontalAlignment(JLabel.CENTER);
-            ImageIcon ii = new ImageIcon(this.getClass().getResource(imagePath));
-            imageLabel.setIcon(ii);
-            this.add(imageLabel, BorderLayout.CENTER);
+            updateImage();
 
         } else {
             //Only remove and DON'T ADD a new image - if a piece has moved away from this tile:
@@ -160,6 +154,16 @@ public class Tile extends JPanel {
         g.fill3DRect(0, 0, len, len, true);
     }
 
+    public void updateImage() {
+        //Adding the image of the new piece that's on the current tile:
+        imagePath = Board.boardMatrix[tileCoordinates.getKey()][tileCoordinates.getValue()].getImagePath();
+        imageLabel.setLayout(new BorderLayout());
+        imageLabel.setHorizontalAlignment(JLabel.CENTER);
+        ImageIcon ii = new ImageIcon(Objects.requireNonNull(this.getClass().getResource(imagePath)));
+        imageLabel.setIcon(ii);
+        this.add(imageLabel, BorderLayout.CENTER);
+    }
+
     private void mouseClickAction() {
         //check if it is current player's turn:
         if (isCurrentTurn) {
@@ -176,7 +180,7 @@ public class Tile extends JPanel {
                 //Tile.isCurrentTurn = false;
 
                 //update the boardMatrix with the move instruction:
-                boardMatrix[currentSelected.getKey()][currentSelected.getValue()].move(tileCoordinates, boardMatrix);
+                Board.boardMatrix[currentSelected.getKey()][currentSelected.getValue()].move(tileCoordinates, boardMatrix);
 
                 GameRules.gameUpdate(boardMatrix);
 
@@ -201,8 +205,8 @@ public class Tile extends JPanel {
 
             //validate the previously selected tile:
             if (prevSelected != null && !isUpdated) {
-                tileMatrix[prevSelected.getKey()][prevSelected.getValue()].validate();
-                tileMatrix[prevSelected.getKey()][prevSelected.getValue()].repaint();
+                Board.tileMatrix[prevSelected.getKey()][prevSelected.getValue()].validate();
+                Board.tileMatrix[prevSelected.getKey()][prevSelected.getValue()].repaint();
             }
 
             //if the current tile has a piece, and if it is clicked, update the highlightedCoordinates variable to show the possible destinations of the current tile:

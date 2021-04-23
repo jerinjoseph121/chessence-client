@@ -6,6 +6,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.EmptyBorder;
 
+import com.chessence.Message;
 import com.chessence.gui.pages.CreateRoomPanel;
 import com.chessence.gui.pages.ParentPanel;
 import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.*;
@@ -13,6 +14,7 @@ import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Body extends JPanel implements ActionListener {
 
@@ -174,8 +176,21 @@ public class Body extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.startGameButton) {
-            System.out.println("Button clicked!");
-            ParentPanel.cardLayout.show(ParentPanel.container, "LoadingScreen");
+            if (!CreateRoomPanel.PLAYERS[0].equals("-") && !CreateRoomPanel.PLAYERS[1].equals("-"))
+            {
+                var gameStartedMessage = new Message("", "gameStarted");
+                try {
+                    CreateRoomPanel.objectOutputStream.writeObject(gameStartedMessage);
+                    ParentPanel.cardLayout.show(ParentPanel.container, "GameScreen");
+                } catch (IOException ioException) {
+                    ioException.printStackTrace();
+                }
+            }
+            else
+            {
+                System.out.println("\nNot enough players!");
+            }
+
         }
     }
 

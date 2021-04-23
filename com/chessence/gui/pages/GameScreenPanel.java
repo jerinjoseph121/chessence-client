@@ -94,7 +94,7 @@ public class GameScreenPanel extends ParentPanel implements ActionListener {
         chat_panel.add(new HorizontalSpace(widthOfFrame, 0));
 
         //adding the chat box:
-        chat_panel.add(new ChatBox((int)(width_chat_panel*0.9),(int)(heightOfFrame/1.9)),FlowLayout.CENTER);
+        chat_panel.add(new ChatBox((int)(width_chat_panel*0.9),(int)(heightOfFrame/1.9), this.objectOutputStream),FlowLayout.CENTER);
 
         //adding horizontal space of 0 so next component goes to next line:
         chat_panel.add(new HorizontalSpace((int)(widthOfFrame), 0));

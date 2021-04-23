@@ -6,6 +6,8 @@ import com.chessence.gui.pages.components.HorizontalSpace;
 
 import com.chessence.gui.pages.createRoomPanelComponents.Body;
 import com.chessence.gui.pages.createRoomPanelComponents.RoundedButton;
+import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.PlayersPanel;
+import com.chessence.gui.pages.createRoomPanelComponents.bodyComponents.SpectatorsPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,17 +36,17 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
 
     static Font leaveRoomButtonFont;
 
-    public Socket clientSocket;
-    public ObjectOutputStream objectOutputStream;
-    public ObjectInputStream objectInputStream;
+    public static Socket clientSocket;
+    public static ObjectOutputStream objectOutputStream;
+    public static ObjectInputStream objectInputStream;
 
     private final RoundedButton leaveRoomButton;
 
-    public CreateRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream){
+    public CreateRoomPanel(JFrame frame, CardLayout cardLayout, Socket clientSocket, ObjectOutputStream objectOutputStream, ObjectInputStream objectInputStream) {
         super(frame, cardLayout);
-        this.clientSocket = clientSocket;
-        this.objectOutputStream = objectOutputStream;
-        this.objectInputStream = objectInputStream;
+        CreateRoomPanel.clientSocket = clientSocket;
+        CreateRoomPanel.objectOutputStream = objectOutputStream;
+        CreateRoomPanel.objectInputStream = objectInputStream;
 
         //getting current frame size:
         Rectangle r = frame.getBounds();
@@ -87,7 +89,7 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
         leaveRoomButton = new RoundedButton("Leave Room", leaveRoomButtonFont, Color.decode(CREAM_ORANGE),
                 Color.decode(PINK_MAROON), Color.decode(DARK_PINK_MAROON), 10, new Dimension(175, 40));
 
-        footerPanel.setPreferredSize(new Dimension(widthOfFrame, (int)(heightOfFrame * 0.1)));
+        footerPanel.setPreferredSize(new Dimension(widthOfFrame, (int) (heightOfFrame * 0.1)));
         footerPanel.add(leaveRoomButton);
 
         leaveRoomButton.addActionListener(this);
@@ -106,10 +108,33 @@ public class CreateRoomPanel extends ParentPanel implements ActionListener {
         //-----------------------End of designing------------------------//
     }
 
+    public static void clearPlayers() {
+        CreateRoomPanel.PLAYERS[0] = "-";
+        CreateRoomPanel.PLAYERS[1] = "-";
+        PlayersPanel.updatePlayerNames();
+    }
+
+    public static void clearSpecatators() {
+        for (int i = 0; i < 4; i++)
+            CreateRoomPanel.SPECTATORS[i] = "-";
+        SpectatorsPanel.updateSpecatators();
+    }
+
+    public static void printPlayerDetails(){
+        System.out.println("\nPlayers: ");
+        for(int i=0; i<2; i++){
+            System.out.println(PLAYERS[i]);
+        }
+        System.out.println("\nSpectators: ");
+        for(int i=0; i<4; i++){
+            System.out.println(SPECTATORS[i]);
+        }
+    }
+
     @Override
-    public void actionPerformed(ActionEvent e){
+    public void actionPerformed(ActionEvent e) {
         //returning to main menu
-        if(e.getSource() == leaveRoomButton){
+        if (e.getSource() == leaveRoomButton) {
             Message roomIdMessage = new Message("", "leaveLobby");
             try {
                 objectOutputStream.writeObject(roomIdMessage);

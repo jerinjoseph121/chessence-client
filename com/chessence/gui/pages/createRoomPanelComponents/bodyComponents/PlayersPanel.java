@@ -138,8 +138,29 @@ public class PlayersPanel extends JPanel implements ActionListener {
 
     //method to initialize player to the panel (called in the main menu panel)
     public static void initializePlayer(){
-        CreateRoomPanel.PLAYERS[1] = ParentPanel.username;
-        playerTwoName.setText(ParentPanel.username);
+        CreateRoomPanel.PLAYERS[0] = ParentPanel.username;
+        updatePlayerNames();
+    }
+
+    public static void updatePlayerNames(){
+        playerOneName.setText(CreateRoomPanel.PLAYERS[0]);
+        playerTwoName.setText(CreateRoomPanel.PLAYERS[1]);
+    }
+
+    public static void fixJoinSpectatorsButtonPosition(){
+        System.out.println("fixing position called!");
+        if(ParentPanel.username.contains(CreateRoomPanel.PLAYERS[0])){
+            System.out.println("At position 0");
+            playerOneInfo.remove(playerJoinSpectatorButton);
+            playerTwoInfo.remove(playerJoinSpectatorButton);
+            playerOneInfo.add(playerJoinSpectatorButton);
+        }
+        else if(ParentPanel.username.contains(CreateRoomPanel.PLAYERS[1])){
+            System.out.println("At position 1");
+            playerOneInfo.remove(playerJoinSpectatorButton);
+            playerTwoInfo.remove(playerJoinSpectatorButton);
+            playerTwoInfo.add(playerJoinSpectatorButton);
+        }
     }
 
     //method to add a player into the panel
@@ -181,6 +202,8 @@ public class PlayersPanel extends JPanel implements ActionListener {
             //removes player and add spectator panel when join spectator button is clicked
             removePlayer();
             SpectatorsPanel.addSpectator();
+
+            //
 
             repaint();
             revalidate();
