@@ -2,12 +2,16 @@ package com.chessence.gui.pages.gameMechanics;
 
 import javafx.util.Pair;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Rook extends AbstractPiece {
 
+    private final Pair<Integer, Integer> startPosition;
+
     public Rook(Pair<Integer, Integer> coordinates, boolean isWhite) {
         super(coordinates, isWhite, "R");    //R -> ROOK
+        startPosition = this.getCoordinates();
     }
 
     @Override
@@ -46,7 +50,7 @@ public class Rook extends AbstractPiece {
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
 
-        if(GameRules.isCheck(this.isWhite()) && !check)
+        if(!check)
             validDestinations.removeIf(move -> !GameRules.isSavedFromCheck(this, move, boardMatrix));
 
         return validDestinations;

@@ -8,11 +8,8 @@ import java.util.ArrayList;
 
 public class Pawn extends AbstractPiece {
 
-    private final Pair<Integer, Integer> startPosition;
-
     public Pawn(Pair<Integer, Integer> coordinates, boolean isWhite) {
         super(coordinates, isWhite, "P");    //P -> PAWN
-        startPosition = this.getCoordinates();
     }
 
     @Override
@@ -45,8 +42,10 @@ public class Pawn extends AbstractPiece {
                 continue;
 
             //Makes pawn able to move 2 steps at start
-            if ((this.getCoordinates() != startPosition) && ((distance[0] == 2) || (distance[0] == -2)))
+            if (this.getDidMove() && ((distance[0] == 2) || (distance[0] == -2))){
                 continue;
+            }
+
 
             //Wont allow to start 2 step move if another piece blocks it
             if((distance[0] == 2) && (boardMatrix[x + 1][y] != null))
@@ -57,9 +56,10 @@ public class Pawn extends AbstractPiece {
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
 
-        if(GameRules.isCheck(this.isWhite()) && !check)
+        if(!check)
             validDestinations.removeIf(move -> !GameRules.isSavedFromCheck(this, move, boardMatrix));
 
         return validDestinations;
     }
+
 }

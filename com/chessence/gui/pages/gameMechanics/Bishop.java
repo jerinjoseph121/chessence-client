@@ -45,7 +45,7 @@ public class Bishop extends AbstractPiece {
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
 
-        if(GameRules.isCheck(this.isWhite()) && !check)
+        if(!check)
             validDestinations.removeIf(move -> !GameRules.isSavedFromCheck(this, move, boardMatrix));
 
         return validDestinations;
