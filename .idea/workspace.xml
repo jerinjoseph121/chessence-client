@@ -3,23 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8607f2df-df6d-4433-adaa-10da46708f43" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/components/Tile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/AbstractPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Bishop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/GameRules.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/GameRules.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Knight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Pawn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Queen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" beforeDir="false" afterPath="$PROJECT_DIR$/com/chessence/gui/pages/gameMechanics/Rook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/components/Tile.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/AbstractPiece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/AbstractPiece.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/GameRules.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/GameRules.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/King.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/King.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Pawn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Queen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chessence-client/com/chessence/gui/pages/gameMechanics/Rook.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

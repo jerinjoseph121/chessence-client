@@ -9,17 +9,17 @@ import java.util.Set;
 
 public class GameRules {
 
-    private static boolean checkWhite;
-    private static boolean checkBlack;
-
     private static boolean castleWhite;
     private static boolean castleBlack;
 
-//    private static boolean checkMateWhite = false;
-//    private static boolean checkMateBlack = false;
+    private static boolean checkWhite;
+    private static boolean checkBlack;
 
     private static ArrayList<Pair<Integer, Integer>> whiteMoves;
     private static ArrayList<Pair<Integer, Integer>> blackMoves;
+
+    private static ArrayList<Pair<Integer, Integer>> playableWhiteMoves;
+    private static ArrayList<Pair<Integer, Integer>> playableBlackMoves;
 
     private static AbstractPiece whiteKing;
     private static AbstractPiece blackKing;
@@ -27,34 +27,104 @@ public class GameRules {
     private static AbstractPiece piece;
 
     public GameRules(AbstractPiece boardMatrix[][]){
-        System.out.println("Game Rules");
-        this.checkWhite = false;
-        this.checkBlack = false;
+        createWhiteMoves(boardMatrix);
+        createBlackMoves(boardMatrix);
+
         this.castleWhite = false;
         this.castleBlack = false;
+        this.checkWhite = false;
+        this.checkBlack = false;
         gameUpdate(boardMatrix);
 
     }
 
     public static void gameUpdate(AbstractPiece boardMatrix[][]){
-        System.out.println("Update Game Rules");
 
-        createWhiteMoves(boardMatrix);
-        createBlackMoves(boardMatrix);
+        createPlayableWhiteMoves(boardMatrix);
+        createPlayableBlackMoves(boardMatrix);
 
-        if(blackMoves.contains(whiteKing.getCoordinates())){
-            System.out.println("White is Check");
+        if(playableBlackMoves.contains(whiteKing.getCoordinates())){
             checkWhite = true;
         }
         else
             checkWhite = false;
 
-        if(whiteMoves.contains(blackKing.getCoordinates())){
-            System.out.println("Black is Check");
+        if(playableWhiteMoves.contains(blackKing.getCoordinates())){
             checkBlack = true;
         }
         else
             checkBlack = false;
+
+        if(isCheckMate(true)){
+            System.out.println("Black Wins");
+        }
+        else if(isCheckMate(false)){
+            System.out.println("White Wins");
+        }
+    }
+
+    private static void createPlayableWhiteMoves(AbstractPiece boardMatrix[][]){
+        Set<Pair<Integer, Integer>> temp = new LinkedHashSet<>();
+        ArrayList<Pair<Integer, Integer>> moves;
+        for(int i = 0; i < 8; i++) {
+            for(int j = 0; j < 8; j++){
+                if(boardMatrix[i][j] != null){
+                    piece = boardMatrix[i][j];
+
+                    if(piece.isWhite()){
+                        moves = piece.getValidDestinations(boardMatrix, false);
+                        if(piece instanceof King){
+                            whiteKing = piece;
+                        }
+                        if(piece instanceof Pawn){
+                            // Removes the Straight Pawn Moves as Threat Moves
+                            moves.removeIf((move) -> (move.getValue() == piece.getCoordinates().getValue()));
+                            // Adds the diagonal moves of Pawn as Threat Moves
+                            moves.add(new Pair<Integer, Integer>(piece.getCoordinates().getKey() + 1, piece.getCoordinates().getValue() + 1));
+                            moves.add(new Pair<Integer, Integer>(piece.getCoordinates().getKey() + 1, piece.getCoordinates().getValue() - 1));
+                        }
+                        temp.addAll(moves);
+                    }
+                }
+            }
+        }
+        if(playableWhiteMoves != null)
+            playableWhiteMoves.clear();
+        playableWhiteMoves = new ArrayList<>(temp);
+    }
+
+    private static void createPlayableBlackMoves(AbstractPiece boardMatrix[][]){
+        Set<Pair<Integer, Integer>> temp = new LinkedHashSet<>();
+        ArrayList<Pair<Integer, Integer>> moves;
+
+        for(int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                if (boardMatrix[i][j] != null) {
+                    piece = boardMatrix[i][j];
+
+                    if (!piece.isWhite()) {
+                        moves = piece.getValidDestinations(boardMatrix, false);
+                        if (piece instanceof King) {
+                            blackKing = piece;
+                        }
+                        if (piece instanceof Pawn) {
+                            // Removes the Straight Pawn Moves as Threat Moves
+                            moves.removeIf((move) -> (move.getValue() == piece.getCoordinates().getValue()));
+                            // Adds the diagonal moves of Pawn as Threat Moves
+                            moves.add(new Pair<Integer, Integer>(piece.getCoordinates().getKey() + 1, piece.getCoordinates().getValue() + 1));
+                            moves.add(new Pair<Integer, Integer>(piece.getCoordinates().getKey() + 1, piece.getCoordinates().getValue() - 1));
+                        }
+                        System.out.println(moves);
+                        System.out.println(piece);
+                        temp.addAll(moves);
+                    }
+                }
+            }
+        }
+
+        if(playableBlackMoves != null)
+            playableBlackMoves.clear();
+        playableBlackMoves = new ArrayList<>(temp);
     }
 
     private static void createWhiteMoves(AbstractPiece boardMatrix[][]){
@@ -67,8 +137,9 @@ public class GameRules {
 
                     if(piece.isWhite()){
                         moves = piece.getValidDestinations(boardMatrix, true);
-                        if(piece instanceof King)
+                        if(piece instanceof King){
                             whiteKing = piece;
+                        }
                         if(piece instanceof Pawn){
                             // Removes the Straight Pawn Moves as Threat Moves
                             moves.removeIf((move) -> (move.getValue() == piece.getCoordinates().getValue()));
@@ -82,6 +153,8 @@ public class GameRules {
             }
         }
 
+        if(whiteMoves != null)
+            whiteMoves.clear();
         whiteMoves = new ArrayList<>(temp);
     }
 
@@ -96,8 +169,9 @@ public class GameRules {
 
                     if(!piece.isWhite()){
                         moves = piece.getValidDestinations(boardMatrix, true);
-                        if(piece instanceof King)
+                        if(piece instanceof King){
                             blackKing = piece;
+                        }
                         if(piece instanceof Pawn){
                             // Removes the Straight Pawn Moves as Threat Moves
                             moves.removeIf((move) -> (move.getValue() == piece.getCoordinates().getValue()));
@@ -111,6 +185,8 @@ public class GameRules {
             }
         }
 
+        if(blackMoves != null)
+            blackMoves.clear();
         blackMoves = new ArrayList<>(temp);
     }
 
@@ -119,6 +195,22 @@ public class GameRules {
             return checkWhite;
         else
             return checkBlack;
+    }
+
+    public static boolean isCheckMate(boolean isWhite){
+        if(isWhite){
+            if(checkWhite && (playableWhiteMoves.size() == 0))
+                return true;
+            else
+                return false;
+        }
+        else{
+            System.out.println(playableBlackMoves);
+            if(checkBlack && (playableBlackMoves.size() == 0))
+                return true;
+            else
+                return false;
+        }
     }
 
     public static void changeCastled(boolean isWhite){
@@ -175,12 +267,12 @@ public class GameRules {
         return isSaved;
     }
 
-    public static ArrayList<Pair<Integer, Integer>> getWhiteMoves(){
-        return whiteMoves;
+    public static ArrayList<Pair<Integer, Integer>> getPlayableWhiteMoves(){
+        return playableWhiteMoves;
     }
 
-    public static ArrayList<Pair<Integer, Integer>> getBlackMoves(){
-        return blackMoves;
+    public static ArrayList<Pair<Integer, Integer>> getPlayableBlackMoves(){
+        return playableBlackMoves;
     }
 
 }

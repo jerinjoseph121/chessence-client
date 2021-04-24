@@ -21,9 +21,9 @@ public class King extends AbstractPiece {
         //Storing the threat moves in this array
         ArrayList<Pair<Integer, Integer>> threatDestinations = new ArrayList<>();
         if(this.isWhite())
-            threatDestinations = GameRules.getBlackMoves();
+            threatDestinations = GameRules.getPlayableBlackMoves();
         else
-            threatDestinations = GameRules.getWhiteMoves();
+            threatDestinations = GameRules.getPlayableWhiteMoves();
 
         for (var distance : possibleDistances) {
 
@@ -54,15 +54,15 @@ public class King extends AbstractPiece {
                     continue;
 
                 if (this.isWhite()){
-                    if (GameRules.getBlackMoves().contains(new Pair<Integer, Integer>(x, 5)))
+                    if (GameRules.getPlayableBlackMoves().contains(new Pair<Integer, Integer>(x, 5)))
                         continue;
-                    if (GameRules.getBlackMoves().contains(new Pair<Integer, Integer>(x, 6)))
+                    if (GameRules.getPlayableBlackMoves().contains(new Pair<Integer, Integer>(x, 6)))
                         continue;
                 }
                 else{
-                    if (GameRules.getWhiteMoves().contains(new Pair<Integer, Integer>(x,  5)))
+                    if (GameRules.getPlayableWhiteMoves().contains(new Pair<Integer, Integer>(x,  5)))
                         continue;
-                    if (GameRules.getWhiteMoves().contains(new Pair<Integer, Integer>(x, 6)))
+                    if (GameRules.getPlayableWhiteMoves().contains(new Pair<Integer, Integer>(x, 6)))
                         continue;
                 }
             }
@@ -82,22 +82,24 @@ public class King extends AbstractPiece {
                     continue;
 
                 if (this.isWhite()){
-                    if (GameRules.getBlackMoves().contains(new Pair<Integer, Integer>(x, 3)))
+                    if (GameRules.getPlayableBlackMoves().contains(new Pair<Integer, Integer>(x, 3)))
                         continue;
-                    if (GameRules.getBlackMoves().contains(new Pair<Integer, Integer>(x, 2)))
+                    if (GameRules.getPlayableBlackMoves().contains(new Pair<Integer, Integer>(x, 2)))
                         continue;
                 }
                 else{
-                    if (GameRules.getWhiteMoves().contains(new Pair<Integer, Integer>(x, 3)))
+                    if (GameRules.getPlayableWhiteMoves().contains(new Pair<Integer, Integer>(x, 3)))
                         continue;
-                    if (GameRules.getWhiteMoves().contains(new Pair<Integer, Integer>(x, 2)))
+                    if (GameRules.getPlayableWhiteMoves().contains(new Pair<Integer, Integer>(x, 2)))
                         continue;
                 }
             }
 
-
             validDestinations.add(new Pair<Integer, Integer>(x + distance[0], y + distance[1]));
         }
+
+//        if(!check)
+//            validDestinations.removeIf(move -> !GameRules.isSavedFromCheck(this, move, boardMatrix));
 
         return validDestinations;
     }
